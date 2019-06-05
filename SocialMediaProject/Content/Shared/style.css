@@ -1,0 +1,25 @@
+﻿body {
+    background-color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+    background-color: rgb(240, 240, 240)
+}
+
+.logo {
+    height: auto;
+    height: 45px;
+    width: 45px;
+    border: none !important;
+    padding: 0;
+    background: none;
+}
+
+.logo-button {
+    border: none;
+    background: none;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 0px,0px,0px,0px;
+}
