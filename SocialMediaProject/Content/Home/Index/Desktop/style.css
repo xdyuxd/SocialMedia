@@ -1,7 +1,40 @@
 ﻿body {
+    background-color: rgb(220, 220, 220);
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+    background-color: rgb(255, 255, 255)
     
 }
 
-.teste01{
-    color: red;
+.logo {
+    height: 45px;
+    width: 45px;
+    border: none !important;
+    padding: 0;
+    background: none;
+}
+
+.logo-button {
+    border: none;
+    background: none;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.text-logo-button {
+    float: right;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.gradient {
+    position: absolute;
+    top: 0%;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(72deg, #c7b3ff, #d4d0a2 );
+    z-index: -10;
 }
