@@ -4,9 +4,9 @@
 }
 
 .navbar {
-    background-color: rgb(255, 255, 255)
-    
+    background-color: rgb(220, 220, 220); //TODO: TRANSPARENT NAVBAR
 }
+
 
 .logo {
     height: 45px;
@@ -38,3 +38,37 @@
     background-image: linear-gradient(72deg, #c7b3ff, #d4d0a2 );
     z-index: -10;
 }
+
+.container_main {
+    display: flex;
+}
+
+.box_template_image {
+    order: 1;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
+}
+
+.template_image {
+    border-radius: 25px;
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(2px 2px 2px #222);
+
+}
+
+.box_line {
+    order: 2;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
+}
+
+.box_welcome {
+    order: 3;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
+}
+
+
