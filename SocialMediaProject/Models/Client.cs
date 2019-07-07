@@ -10,11 +10,11 @@ namespace SocialMedia.Models
         private List<Client> friend_list;
 
         //Methods
-        public string cover_pic { get; set; }
-        public string profile_pic { get; set; }
-        public string nickname { get; set; }
-        public string bio { get; set; }
-        public Dictionary<int, Post> gallery { get; set; }
+        public int Id { get; set; }
+        public string Cover_pic { get; set; }
+        public string Profile_pic { get; set; }
+        public string Bio { get; set; }
+        public Dictionary<int, Post> Gallery { get; set; }
 
         public void addFriend(Client client)
         {
