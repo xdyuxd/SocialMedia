@@ -6,14 +6,21 @@
 .gradient {
     position: absolute;
     top: 0%;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-image: linear-gradient(72deg, #c7b3ff, #d4d0a2 );
     z-index: -10;
 }
 
 .navbar {
-    background-color: rgb(220, 220, 220); //TODO: TRANSPARENT NAVBAR
+    border-width: 0px;
+    -webkit-box-shadow: 0px 0px;
+    box-shadow: 0px 0px;
+    background-color: rgba(0,0,0,0.1);
+    background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0%, rgba(0,0,0,0.00)),color-stop( 100%, rgba(0,0,0,0.00)));
+    background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+    background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+    //TODO: TRANSPARENT NAVBAR
 }
 
 
@@ -41,7 +48,7 @@
 
 .container_main {
     display: flex;
-    padding: 50px;
+    padding: 10%;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
@@ -50,43 +57,59 @@
 .box_template_image {
     display: flex;
     order: 1;
-    width: 580px;
-    height: 300px;
+    width: auto;
+    height: auto;
     justify-content: center;
     align-items: center;
 }
 
 .template_image_login {
     display: flex;
+    flex-shrink: 1;
     order: 2;
-    border-radius: 25px;
+    border-radius: 5px;
     filter: drop-shadow(2px 2px 2px #222);
     max-width: 600px;
-    max-height: 250px;
+    max-height: 350px;
 }
 
-.box_line {
+.login_info {
     display: flex;
-    order: 3;
-    height: 200px;
-    width: 2px;
-    background-color: #000;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    color: black;
+    font-size: 140%;
+    padding-bottom: 4%;
 }
-
 
 .box_login {
     display: flex;
     order: 4;
-    width: 600px;
-    height: 400px;
+    width: auto;
+    height: auto;
     justify-content: center;
     align-items: center;
+    flex-shrink: 1;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
-.form-control {
-    padding: 12px 20px;
+.forms_row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 300px;
+    width: 500px;
 }
+
+.col-xs-7 {
+    padding: 8px 8px 8px 8px;
+}
+.btn btn-primary btn-sm {
+    padding: 15px 15px 15px 15px;
+    color: rgb(193, 115, 255, 0.2);
+}
+
 
 

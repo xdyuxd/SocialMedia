@@ -3,6 +3,7 @@
 }
 @Styles.Render("~/Content/home/index/desktop/style.css")
 <div class="gradient"></div>
+
 <div class="navbar navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -17,6 +18,7 @@
             </button>
         </div>
 
+        <!--
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>@Html.ActionLink("Início", "Index", "Home")</li>
@@ -24,6 +26,7 @@
                 <li>@Html.ActionLink("Login", "Contact", "Home")</li>
             </ul>
         </div>
+         -->
     </div>
 </div>
 
@@ -31,24 +34,23 @@
     <div class="box_template_image">
         <img src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2017/02/17160524/social-media-walls-for-events.jpg" class="template_image_login" />
     </div>
-    <div class="box_line">
-    </div>
     <div class="box_login">
         <form>
             <div class="forms_row">
-                <div class="first_name">
+                <div class="col-xs-7">
                     <input type="text" class="form-control" placeholder="Primeiro nome.">
                 </div>
-                <div class="last_name">
+                <div class="col-xs-7">
                     <input type="text" class="form-control" placeholder="Sobrenome.">
                 </div>
-                <div class="user_email">
+                <div class="col-xs-7">
                     <input type="text" class="form-control" placeholder="Email ou usuário.">
                 </div>
-                <div class="password">
-                    <input type="password" class="form-control" placeholder="Senha..">
+                <div class="col-xs-7">
+                    <input type="password" class="form-control" placeholder="Senha.">
                 </div>
-            <button type="submit" class="button_login">Enviar</button>
+                <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+            </div>
         </form>
     </div>
 </div>
