@@ -13,17 +13,26 @@ namespace SocialMediaProject
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Home", id = UrlParameter.Optional }
-            );
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Home", action = "Home", id = UrlParameter.Optional }
+            //);
 
             routes.MapRoute(
                 name: "Home",
                 url: "",
                 defaults: new { controller = "Home",  action = "Home" }
             );
+
+            routes.MapRoute(
+                name: "Registration",
+                url: "register",
+                defaults: new { controller = "Home", action = "Create" }
+            );
+
+
+
         }
     }
 }

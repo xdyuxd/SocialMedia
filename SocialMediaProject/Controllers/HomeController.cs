@@ -19,25 +19,18 @@ namespace SocialMedia.Controllers
             return View("Index");
         }
 
-        [HttpPost]
-        [Route("Create")]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Create(string name)
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Nickname,Name,Surname,Birthdate,Password,Email")] Client client)
         {
-            Debug.WriteLine(name);
+            if (ModelState.IsValid)
+            {
+                
+                db.clients.Add(client);
+                db.SaveChanges();
+                return RedirectToAction("Home");
+            }
             return View("Index");
         }
-
-        //public ActionResult Create([Bind(Include = "Nickname,Name,Surname,Birthdate,Password,Email")] Client client)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.clients.Add(client);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View();
-        //}
 
 
     }
