@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace SocialMedia.Models
         [Display(Name = "Sobrenome")]
         public string Surname { get; set; }
 
+        [BsonDateTimeOptions]
         [Display(Name = "Data de nascimento")]
         [Required(ErrorMessage = "A data de nascimento é obrigatorio")]
         public DateTime Birthdate { get; set; }

@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using SocialMedia.DAL;
 using SocialMedia.Models;
+using System.Web.Script.Serialization;
 
 namespace SocialMedia.Controllers
 {
     public class HomeController : Controller
     {
-        private SocialMediaContext db = new SocialMediaContext();
+        //private SocialMediaContext db = new SocialMediaContext();
+
 
         [HttpGet]
         public ActionResult Home()
         {
+
+
             return View("Index");
         }
 
@@ -25,8 +25,8 @@ namespace SocialMedia.Controllers
             if (ModelState.IsValid)
             {
                 
-                db.clients.Add(client);
-                db.SaveChanges();
+                //db.clients.Add(client);
+                //db.SaveChanges();
                 return RedirectToAction("Home");
             }
             return View("Index");

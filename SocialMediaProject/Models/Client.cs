@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace SocialMedia.Models
 {
@@ -9,8 +11,10 @@ namespace SocialMedia.Models
     {
         private List<Client> friend_list;
 
-        //Methods
-        public int Id { get; set; }
+        //Methods 
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId Id { get; set; }
         public string Cover_pic { get; set; }
         public string Profile_pic { get; set; }
         public string Bio { get; set; }
