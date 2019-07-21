@@ -12,46 +12,56 @@
     z-index: -10;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-direction: column;
+    align-content: flex-start;
+    height: 85px;
+}
+
 .navbar {
+    display: flex;
+    align-items: flex-start;
     border-width: 0px;
     -webkit-box-shadow: 0px 0px;
     box-shadow: 0px 0px;
-    background-color: rgba(0,0,0,0.1);
-    background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0%, rgba(0,0,0,0.00)),color-stop( 100%, rgba(0,0,0,0.00)));
-    background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
-    background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
-    //TODO: TRANSPARENT NAVBAR
 }
 
+.navbar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 80%;
+    height: 80%;
+}
 
 .logo {
-    height: 45px;
-    width: 45px;
+    display: flex;
+    height: 60px;
+    width: 60px;
     border: none !important;
     padding: 0;
     background: none;
+    align-self: baseline;
 }
 
 .logo-button {
+    display: flex;
+    float: left;
     border: none;
     background: none;
-    margin-top: 2px;
-    margin-bottom: 2px;
-}
-
-.text-logo-button {
-    float: right;
-    margin-top: 10px;
-    margin-left: 5px;
-    margin-bottom: 10px;
+    align-self: baseline;
 }
 
 .container_main {
     display: flex;
-    padding: 10%;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+    padding-top: 10%;
 }
 
 .box_template_image {
@@ -61,6 +71,7 @@
     height: auto;
     justify-content: center;
     align-items: center;
+    padding-right: 8%;
 }
 
 .template_image_login {
@@ -73,24 +84,17 @@
     max-height: 350px;
 }
 
-.login_info {
-    display: flex;
-    text-align: center;
-    color: black;
-    font-size: 140%;
-    padding-bottom: 4%;
-}
-
 .box_login {
     display: flex;
     order: 4;
-    width: auto;
-    height: auto;
+    width: 25%;
     justify-content: center;
     align-items: center;
+    align-content: center;
     flex-shrink: 1;
     flex-wrap: wrap;
     flex-direction: column;
+    height: 300px;
 }
 
 .forms_row {
@@ -99,17 +103,36 @@
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
-    height: 300px;
-    width: 500px;
+    height: auto;
+    width: auto;
 }
 
-.col-xs-7 {
-    padding: 8px 8px 8px 8px;
-}
-.btn btn-primary btn-sm {
-    padding: 15px 15px 15px 15px;
-    color: rgb(193, 115, 255, 0.2);
+.form-control {
+    margin: 2% 2% 2% 2%;
+    padding: 0 0 0 0;
 }
 
+.btn btn-primary btn-lg {
+    magin-top: 20px;
+}
+
+::-webkit-input-placeholder {
+    font-size: 20px;
+    text-align: center;
+}
+
+::-moz-placeholder {
+    font-size: 20px;
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-image: linear-gradient(72deg, #c7b3ff, #d4d0a2 );
+    text-align: center;
+}
 
 
