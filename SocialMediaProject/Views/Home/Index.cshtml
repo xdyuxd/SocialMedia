@@ -2,31 +2,17 @@
     ViewBag.Title = "Cadastre-se";
 }
 @Styles.Render("~/Content/home/index/desktop/style.css")
+<script src="~/Content/Home/Index/Desktop/script.js"></script>
 <div class="gradient"></div>
 
 <div class="navbar navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <button class="logo-button">
                 <img src="https://i.imgur.com/DZE7h4J.png" class="logo" />
             </button>
             <input type="text" class="form-control col-lg-12" placeholder="Procurar">
         </div>
-
-        <!--
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                <li>@Html.ActionLink("Login", "Contact", "Home")</li>
-            </ul>
-        </div>
-         -->
     </div>
 </div>
 
@@ -34,26 +20,51 @@
     <div class="box_template_image">
         <img src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2017/02/17160524/social-media-walls-for-events.jpg" class="template_image_login" />
     </div>
-    <div class="box_login">
+    <div class="box_registration" id="box_registration">
         <div class="welcome_text">
             Bem vindo ao SM, preencha o formulário para realizar seu cadastro ou pressione o botão REALIZAR LOGIN para entrar em sua conta.
         </div>
         <form class="form-group">
-            <div class="col-lg-8">
-                <input type="text" class="form-control" placeholder="Primeiro nome">
+            <div class="col-xs-8">
+                <input type="text" class="form-control" id="first_name" placeholder="Primeiro nome">
             </div>
-            <div class="col-lg-8">
-                <input type="text" class="form-control" placeholder="Sobrenome">
+            <div class="col-xs-8">
+                <input type="text" class="form-control" id="last_name" placeholder="Sobrenome">
             </div>
-            <div class="col-lg-8">
-                <input type="text" class="form-control" placeholder="Email">
+            <div class="col-xs-8">
+                <input type="text" class="form-control" id="email" placeholder="Email">
             </div>
-            <div class="col-lg-8">
+            <div class="col-xs-8">
+                <input type="date" class="form-control" id="birthdate" placeholder="Data de aniversário">
+            </div>
+            <div class="col-xs-8">
+                <input type="text" class="form-control" id="nickname" placeholder="Nickname">
+            </div>
+            <div class="col-xs-8">
+                <input type="password" class="form-control" id="password" placeholder="Senha">
+            </div>
+            <div class="form_buttons">
+                <button class="btn btn-primary register_button" id="register_button" type="button">Cadastrar</button>
+                <button class="btn btn-light login_button" type="button" id="login_button">Realizar login</button>
+            </div>
+        </form>
+    </div>
+    <div class="box_login" id="box_login">
+        <div class="welcome_text">
+            Favor inserir suas informações de login.
+        </div>
+        <form class="form-group">
+            <div class="col-xs-8">
+                <input type="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="col-xs-8">
                 <input type="password" class="form-control" placeholder="Senha">
             </div>
             <div class="form_buttons">
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-                <button type="submit" class="btn btn-light">Realizar login</button>
+                <button class="btn btn-light login_button" type="button" id="login_button">Realizar login</button>
+            </div>
+            <div class="form_buttons">
+                <button class="btn btn-light login_button" type="button" id="button_return">Voltar</button>
             </div>
         </form>
     </div>

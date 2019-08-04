@@ -1,6 +1,7 @@
 ﻿body {
     background-color: rgb(220, 220, 220);
     font-family: 'Roboto', sans-serif;
+    padding-top: 0px;
 }
 
 .gradient {
@@ -62,7 +63,7 @@
     align-items: center;
     justify-content: center;
     align-content: center;
-    padding-top: 10%;
+    padding-top: 8%;
 }
 
 .box_template_image {
@@ -81,41 +82,37 @@
     order: 2;
     border-radius: 4px;
     filter: drop-shadow(2px 2px 2px #222);
-    max-width: 750px;
+    max-width: 600px;
+}
+
+.box_registration {
+    display: flex;
+    order: 4;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
 }
 
 .box_login {
     display: flex;
     order: 4;
-    width: 20%;
-    flex-shrink: 1;
     flex-direction: column;
-    height: 360px;
-    width: 500px
+    align-items: center;
+    width: 20%;
+    display: none;
 }
 
 .form-group {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    flex-flow: column nowrap;
+    justify-content: space-between;
     width: 100%;
 }
 
 .form-control {
-    margin: 2% 2% 2% 2%;
-    padding: 0 0 0 0;
-}
-
-.form_buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
-    justify-content: space-between;
-    height: 80px;
-    width: 220px;
+    margin: 4px 4px 4px 4px;
 }
 
 .welcome_text {
@@ -130,15 +127,10 @@
     color: rgb(83, 83, 83);
 }
 
-::-webkit-input-placeholder {
-    font-size: 20px;
-    text-align: center;
+.form_buttons {
+    margin: 5px;
 }
 
-::-moz-placeholder {
-    font-size: 20px;
-    text-align: center;
-}
 
 .footer {
     position: fixed;
