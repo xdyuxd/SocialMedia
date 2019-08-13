@@ -1,0 +1,44 @@
+﻿body {
+    padding-top: 0%;
+    background-color: rgb(234, 234, 234);
+}
+
+.cover-photo {
+    top: 0%;
+    background-color: rgb(216, 216, 216);
+    width: 100%;
+    height: 200px;
+}
+
+.profile-photo {
+    background-color: rgb(216, 216, 216);
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 50%; /* the magic */
+    border: 3px solid white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: -150px auto;
+    display: flex;
+}
+
+.status-bar {
+    background-color: white;
+    width: 100%;
+    height: 180px;
+}
+
+.bio {
+    position: relative;
+    font-size: 20px;
+    margin: 10px, 0px, 0px, 960px;
+}
+
+.friend-list {
+    position: relative;
+    font-size: 20px;
+    margin: 10px 0px, 0px, 960px;
+    width: auto;
+}
