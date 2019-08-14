@@ -7,7 +7,38 @@
     top: 0%;
     background-color: rgb(216, 216, 216);
     width: 100%;
-    height: 200px;
+    height: 300px;
+}
+
+.status-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: white;
+    width: 100%;
+    height: 280px;
+    align-content: center;
+}
+
+
+.bio {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    margin-left: 5%;
+    margin-top: 2%;
+    max-width: 500px;
+    max-height: 150px;
+    align-items: center;
+}
+
+.profile-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    height: 260px;
+    margin: -150px auto;
 }
 
 .profile-photo {
@@ -15,30 +46,24 @@
     width: 200px;
     height: 200px;
     line-height: 200px;
-    border-radius: 50%; /* the magic */
-    border: 3px solid white;
-    font-size: 16px;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: -150px auto;
-    display: flex;
+    border-radius: 50%;
+    border: 5px solid white;
+    align-self: center;
 }
 
-.status-bar {
-    background-color: white;
-    width: 100%;
-    height: 180px;
-}
 
-.bio {
-    position: relative;
-    font-size: 20px;
-    margin: 10px, 0px, 0px, 960px;
+.profile-name{
+    max-height: 100px;
+    max-width: 250px;
+    align-self: center;
+    font-size: 30px;
 }
 
 .friend-list {
     position: relative;
     font-size: 20px;
-    margin: 10px 0px, 0px, 960px;
-    width: auto;
+    margin-right: 5%;
+    margin-top: 2%;
+    max-width: 500px;
+    max-height: 150px;
 }
