@@ -1,6 +1,6 @@
 ﻿$(document).ready(function (e) {
     function runEffect() {
-        $("#box_registration").fadeOut(1);
+        $("#box-registration").fadeOut(1);
         $("#box_login").fadeIn(450);
     }
 
@@ -10,7 +10,11 @@
     });
     $("#button_return").on("click", function () {
         $("#box_login").fadeOut(1);
-        $("#box_registration").fadeIn(450);
+        $("#box-registration").fadeIn(450);
+        return false;
+    });
+    $("#register_button").on("click", function () {
+        Login();
         return false;
     });
 
@@ -34,11 +38,20 @@
             });
     }
 
+    var first_color = new Array(199, 179, 255, 100);
+    var second_color = new Array(212, 208, 162, 83); //https://www.gradient-animator.com/ 
+    setInterval(function () {
+        $(".gradient").css({ "background-image": `linear-gradient(${deg}deg, rgba(${first_color.toString()}), rgba(${second_color.toString()})` })
+        console.log(first_color.toString())
 
-    $("#register_button").on("click", function () {
-        Login();
-        return false;
-    });
+        //first_color[0] += 15;
+        //second_color[0] -= 15;
+        deg += 15;
+
+    }, 1500);
+
+
+
 });
 
 

@@ -9,8 +9,10 @@
     top: 0%;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(72deg, #c7b3ff, #d4d0a2 );
+    background-image: linear-gradient(72deg, rgba(199,179,255,100), rgba(212,208,162,83) );
     z-index: -10;
+
+
 }
 
 .container {
@@ -20,14 +22,6 @@
     flex-direction: column;
     align-content: flex-start;
     height: 85px;
-}
-
-.navbar {
-    display: flex;
-    align-items: flex-start;
-    border-width: 0px;
-    -webkit-box-shadow: 0px 0px;
-    box-shadow: 0px 0px;
 }
 
 .navbar-header {
@@ -49,6 +43,27 @@
     align-self: baseline;
 }
 
+.search {
+    position: relative;
+    top: -5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-family: FontAwesome, 'Roboto', sans-serif;
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-clip: padding-box;
+    border-radius: 5px;
+}
+
+.search:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0);
+}
+
 .logo-button {
     display: flex;
     float: left;
@@ -57,13 +72,47 @@
     align-self: baseline;
 }
 
-.container_main {
+
+.welcome_text {
+    flex-wrap: wrap;
+    margin-bottom: 5%;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: rgb(83, 83, 83);
+}
+
+.container-main {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
     align-content: center;
     padding-top: 8%;
+}
+
+.box-registration {
+    display: flex;
+    order: 4;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    margin: 15px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e5e5e5;
+    border-radius: 0px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .box_template_image {
@@ -85,14 +134,6 @@
     max-width: 600px;
 }
 
-.box_registration {
-    display: flex;
-    order: 4;
-    flex-direction: column;
-    align-items: center;
-    width: 30%;
-}
-
 .box_login {
     display: flex;
     order: 4;
@@ -111,21 +152,6 @@
     width: 100%;
 }
 
-.form-control {
-    margin: 4px 4px 4px 4px;
-}
-
-.welcome_text {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
-    margin-bottom: 5%;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: rgb(83, 83, 83);
-}
 
 .form_buttons {
     margin: 5px;
