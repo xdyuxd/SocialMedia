@@ -1,48 +1,24 @@
 ﻿@{
     ViewBag.Title = "Cadastre-se";
 }
-@Styles.Render("~/Content/home/index/desktop/style.css")
-<script src="~/Content/Home/Index/Desktop/script.js"></script>
+
 <div class="gradient"></div>
 
-<div class="navbar navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button class="logo-button">
-                <img src="https://i.imgur.com/DZE7h4J.png" class="logo" />
-            </button>
-            <input type="text" class="form-control col-lg-12" placeholder="Procurar">
-        </div>
-    </div>
-</div>
-
-<div class="container_main">
-    <div class="box_template_image">
-        <img src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2017/02/17160524/social-media-walls-for-events.jpg" class="template_image_login" />
-    </div>
-    <div class="box_registration" id="box_registration">
-        <div class="welcome_text">
-            Bem vindo ao SM, preencha o formulário para realizar seu cadastro ou pressione o botão REALIZAR LOGIN para entrar em sua conta.
-        </div>
+<h3 class="welcome_text">
+   Welcome to the Social Media!
+</h3>
+<div class="container-main">
+    @*<div class="box_template_image">
+            <img src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2017/02/17160524/social-media-walls-for-events.jpg" class="template_image_login" />
+        </div>*@
+    <div class="box-registration" id="box-registration">
         <form class="form-group">
-            <div class="col-xs-8">
-                <input type="text" class="form-control" id="first_name" placeholder="Primeiro nome">
-            </div>
-            <div class="col-xs-8">
-                <input type="text" class="form-control" id="last_name" placeholder="Sobrenome">
-            </div>
-            <div class="col-xs-8">
-                <input type="text" class="form-control" id="email" placeholder="Email">
-            </div>
-            <div class="col-xs-8">
-                <input type="date" class="form-control" id="birthdate" placeholder="Data de aniversário">
-            </div>
-            <div class="col-xs-8">
-                <input type="text" class="form-control" id="nickname" placeholder="Nickname">
-            </div>
-            <div class="col-xs-8">
-                <input type="password" class="form-control" id="password" placeholder="Senha">
-            </div>
+            <input type="text" class="form-control" id="first_name" placeholder="Name">
+            <input type="text" class="form-control" id="last_name" placeholder="Surname">
+            <input type="date" class="form-control" id="birthdate" placeholder="Data de aniversário">
+            <input type="text" class="form-control" id="nickname" placeholder="Nickname">
+            <input type="text" class="form-control" id="email" placeholder="E-mail">
+            <input type="password" class="form-control" id="password" placeholder="Password">
             <div class="form_buttons">
                 <button class="btn btn-primary register_button" id="register_button" type="button">Cadastrar</button>
                 <button class="btn btn-light login_button" type="button" id="login_button">Realizar login</button>
@@ -50,12 +26,9 @@
         </form>
     </div>
     <div class="box_login" id="box_login">
-        <div class="welcome_text">
-            Favor inserir suas informações de login.
-        </div>
         <form class="form-group">
             <div class="col-xs-8">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="text" class="form-control" placeholder="Email">
             </div>
             <div class="col-xs-8">
                 <input type="password" class="form-control" placeholder="Senha">
@@ -70,9 +43,7 @@
     </div>
 </div>
 
-<div class="footer">
-    <p>Copyrigh 2019 Yuri C Kaminski e João Pedro PA Silva</p>
-</div>
+
 
 
 
