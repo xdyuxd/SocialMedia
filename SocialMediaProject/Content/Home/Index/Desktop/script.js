@@ -44,8 +44,8 @@
         $(".gradient").css({ "background-image": `linear-gradient(${deg}deg, rgba(${first_color.toString()}), rgba(${second_color.toString()})` })
         console.log(first_color.toString())
 
-        //first_color[0] += 15;
-        //second_color[0] -= 15;
+        first_color[0] += 15;
+        second_color[0] -= 15;
         deg += 15;
 
     }, 1500);

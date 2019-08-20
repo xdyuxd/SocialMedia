@@ -1,4 +1,7 @@
-﻿function edit-bio() {
-    document.getElementById("bio-text").contentEditable = true;
-    document.getElementById("demo").innerHTML = "Você agora pode digitar sua nova biografia.";
-}
+﻿$(document).ready(function editbio() {
+    document.getElementById("#bio-text").contenteditable = true;
+});
+
+$("#bio-edit-button").on("click", function () {
+    editbio();
+});
