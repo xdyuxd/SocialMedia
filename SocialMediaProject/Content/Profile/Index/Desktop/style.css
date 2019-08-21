@@ -16,7 +16,7 @@
     flex-wrap: nowrap;
     background-color: white;
     width: 100%;
-    height: 220px;
+    height: 300px;
     align-content: center;
     align-items: center;
 }
@@ -25,15 +25,16 @@
     display: flex;
     flex-direction: column;
     font-size: 15px;
-    margin-left: 5%;
+    margin-left: 8%;
     margin-top: 2%;
     width: 500px;
     height: 150px;
     align-items: center;
 }
 
+
 .bio-text{
-    margin-top: 10%;
+    margin-top: 8%;
 }
 
 .profile-box {
@@ -68,180 +69,76 @@
 .friend-list {
     display: grid;
     align-items: center;
-    grid-template-columns: 100px 100px 100px;
+    grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
     margin-right: 8%;
-    margin-top: 5%;
-    grid-gap: 15px;
+    margin-top: 2%;
+    grid-gap: 20px;
+    justify-items: center; 
+    align-items: center;
 }
 
-.friend-card {
-    max-width: 100px;
-    max-height: 100px;
-    margin: 5% 5% 5% 5%;
+.friend-thumb {
+    width: 80px;
+    height: 80px;
+    background-image: url(https://i.imgur.com/nTCZIMx.jpg);
+    background-size: cover;
+    -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
+    -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
+    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
+    border-radius: 5%;
+
 }
 
 .profile-items {
-    display: grid;
-    grid-template-columns: 600px 600px;
-    grid-template-rows: auto auto;
-    align-items: center;
-    width: 100%;
-    height: 400px;
+    background-color: white;
+    display: flex;
+    align-items: baseline;
+    align-content: space-around;
+    justify-content: space-around;
+    flex-grow: 1;
 }
 
 .comments {
     display: flex;
-
-    align-content: center;
     flex-direction: column;
     align-items: center;
+    align-self: center;
+}
+
+.row{
+    width: 600px;
+    height: 600px;
+}
+
+.comments-post{
+    width: 550px;
+    height: 400px;
+}
+
+.comment-input {
+    max-width: 600px;
 }
 
 .prefered-photos {
     display: grid;
     align-items: center;
-    grid-template-columns: 250px 250px;
+    grid-template-columns: auto auto;
     grid-template-rows: auto auto;
-    grid-gap: 15px;
-    margin-left: 8%;
-    margin-top: 10%;
+    padding-top: 35px;
+    justify-items: center;
+    grid-gap: 20px;
+    width: 500px;
 }
 
 .prefered-img-thumb {
-    max-height: 100%;
-    max-width: 100%;
-}
-
-.widget-area.blank {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -ms-box-shadow: none;
-    -o-box-shadow: none;
-    box-shadow: none;
-}
-
-body .no-padding {
-    padding: 0;
-}
-
-.widget-area {
-    background-color: #fff;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
-    -ms-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
-    -o-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
-    float: left;
-    margin-top: 30px;
-    padding: 25px 30px;
-    position: relative;
+    height: 150px;
     width: 100%;
+    background-image: url(https://i.imgur.com/0T9GiaQ.jpg);
+    background-size: cover;
+    -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
+    -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
+    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
+    border-radius: 3%;
 }
 
-.status-upload {
-    background: none repeat scroll 0 0 #f5f5f5;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    border-radius: 4px;
-    float: left;
-    width: 100%;
-}
-
-    .status-upload form {
-        float: left;
-        width: 100%;
-    }
-
-        .status-upload form textarea {
-            background: none repeat scroll 0 0 #fff;
-            border: medium none;
-            -webkit-border-radius: 4px 4px 0 0;
-            -moz-border-radius: 4px 4px 0 0;
-            -ms-border-radius: 4px 4px 0 0;
-            -o-border-radius: 4px 4px 0 0;
-            border-radius: 4px 4px 0 0;
-            color: #777777;
-            float: left;
-            font-family: Lato;
-            font-size: 14px;
-            height: 142px;
-            letter-spacing: 0.3px;
-            padding: 20px;
-            width: 100%;
-            resize: vertical;
-            outline: none;
-            border: 1px solid #F2F2F2;
-        }
-
-    .status-upload ul {
-        float: left;
-        list-style: none outside none;
-        margin: 0;
-        padding: 0 0 0 15px;
-        width: auto;
-    }
-
-        .status-upload ul > li {
-            float: left;
-        }
-
-            .status-upload ul > li > a {
-                -webkit-border-radius: 4px;
-                -moz-border-radius: 4px;
-                -ms-border-radius: 4px;
-                -o-border-radius: 4px;
-                border-radius: 4px;
-                color: #777777;
-                float: left;
-                font-size: 14px;
-                height: 30px;
-                line-height: 30px;
-                margin: 10px 0 10px 10px;
-                text-align: center;
-                -webkit-transition: all 0.4s ease 0s;
-                -moz-transition: all 0.4s ease 0s;
-                -ms-transition: all 0.4s ease 0s;
-                -o-transition: all 0.4s ease 0s;
-                transition: all 0.4s ease 0s;
-                width: 30px;
-                cursor: pointer;
-            }
-
-                .status-upload ul > li > a:hover {
-                    background: none repeat scroll 0 0 #606060;
-                    color: #fff;
-                }
-
-    .status-upload form button {
-        border: medium none;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        -ms-border-radius: 4px;
-        -o-border-radius: 4px;
-        border-radius: 4px;
-        color: #fff;
-        float: right;
-        font-family: Lato;
-        font-size: 14px;
-        letter-spacing: 0.3px;
-        margin-right: 9px;
-        margin-top: 9px;
-        padding: 6px 15px;
-    }
-
-.dropdown > a > span.green:before {
-    border-left-color: #2dcb73;
-}
-
-.status-upload form button > i {
-    margin-right: 7px;
-}

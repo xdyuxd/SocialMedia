@@ -9,7 +9,7 @@
 
     <div class="status-bar">
         <div class="bio">
-            <div>BIOGRAFIA</div>
+            <div class="bio-title">BIOGRAFIA</div>
             <div id="bio-text" class="bio-text">Escreva aqui sua biografia, um pouco de fatos particulares de sua vida.</div>
             <button id="bio-edit-button" type="button" class="btn btn-light btn-sm bio-button" style="margin-top: 20px">Editar Biografia</button>
         </div>
@@ -18,64 +18,27 @@
             <div class="profile-name">NOME DA PESSOA</div>
         </div>
         <div class="friend-list">
-            <div class="card friend-card">
-                <img class="card-img-top" src="https://i.imgur.com/nTCZIMxl.jpg" alt="Card image cap">
-                <div class="card-body">
-                </div>
-            </div>
-            <div class="card friend-card">
-                <img class="card-img-top" src="https://i.imgur.com/nTCZIMxl.jpg" alt="Card image cap">
-                <div class="card-body">
-                </div>
-            </div>
-            <div class="card friend-card">
-                <img class="card-img-top" src="https://i.imgur.com/nTCZIMxl.jpg" alt="Card image cap">
-                <div class="card-body">
-                </div>
-            </div>
-            <div class="card friend-card">
-                <img class="card-img-top" src="https://i.imgur.com/nTCZIMxl.jpg" alt="Card image cap">
-                <div class="card-body">
-                </div>
-            </div>
-            <div class="card friend-card">
-                <img class="card-img-top" src="https://i.imgur.com/nTCZIMxl.jpg" alt="Card image cap">
-                <div class="card-body">
-                </div>
-            </div>
-            <div class="card friend-card">
-                <img class="card-img-top" src="https://i.imgur.com/nTCZIMxl.jpg" alt="Card image cap">
-                <div class="card-body">
-                </div>
-            </div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
         </div>
     </div>
     <div class="profile-items">
         <div class="prefered-photos">
-            <img class="prefered-img-thumb" src="https://i.imgur.com/0T9GiaQ.jpg" />
-            <img class="prefered-img-thumb" src="https://i.imgur.com/0T9GiaQ.jpg" />
-            <img class="prefered-img-thumb" src="https://i.imgur.com/0T9GiaQ.jpg" />
-            <img class="prefered-img-thumb" src="https://i.imgur.com/0T9GiaQ.jpg" />
+            <div class="prefered-img-thumb"></div>
+            <div class="prefered-img-thumb"></div>
+            <div class="prefered-img-thumb"></div>
+            <div class="prefered-img-thumb"></div>
         </div>
         <div class="comments">
-            <div class="row">
-                <h2>Comentários</h2>
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-6">
-                    <div class="widget-area no-padding blank">
-                        <div class="status-upload">
-                            <form>
-                                <textarea placeholder="Deixe seu comentário..."></textarea>
-                                <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i>  Comentar</button>
-                            </form>
-                        </div><!-- Status Upload  -->
-                    </div><!-- Widget Area -->
-                </div>
-
-            </div>
+            <h2>Comentários</h2>
+            <form class="comments-post">
+                <textarea class="comment-input" maxlength="20" rows="3" cols="50" placeholder="      Deixe seu comentário..."></textarea>
+                <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i>  Comentar</button>
+            </form>
         </div>
     </div>
 </body>
