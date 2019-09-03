@@ -2,10 +2,13 @@
 <html>
 <head>
     @Styles.Render("~/Content/profile/index/desktop/style.css")
-<script src="~/Content/Profile/Index/Desktop/script.js"></script>
+    @Styles.Render("~/Content/font-awesome.css")
+    <script src="~/Content/Profile/Index/Desktop/script.js"></script>
 </head>
 <body>
     <img class="cover-photo" src="https://i.imgur.com/0T9GiaQ.jpg" /></img>
+
+
 
     <div class="status-bar">
         <div class="bio">
@@ -25,6 +28,7 @@
             <div class="friend-thumb"></div>
             <div class="friend-thumb"></div>
         </div>
+
     </div>
     <div class="profile-items">
         <div class="prefered-photos">
@@ -33,13 +37,74 @@
             <div class="prefered-img-thumb"></div>
             <div class="prefered-img-thumb"></div>
         </div>
-        <div class="comments">
-            <h2>Comentários</h2>
+        <div class="comment-section">
             <form class="comments-post">
-                <textarea class="comment-input" maxlength="20" rows="3" cols="50" placeholder="      Deixe seu comentário..."></textarea>
-                <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i>  Comentar</button>
+                <textarea class="comment-input" maxlength="20" rows="3" cols="50" placeholder="Deixe seu comentário"></textarea>
+                <div class="comment-button">Comentar</div>
             </form>
+            <div class="comments">
+                <div>
+                    <figure>
+                        <img src="http://www.regrom.com/wp-content/uploads/2017/07/2006BF4261-400x400.jpg" />
+                        <figcaption>Jailson Mendes</figcaption>
+                    </figure>
+                    <h5>Comentario do suco de laranja do Jailson</h5>
+                    <div class="answer-comment">
+                        <form>
+                            <button class="fas fa-heart-square" id="counter-button" type="button">❤</button>
+                            <h6 class="counter">0</h6>
+                            <textarea maxlength="20"></textarea>
+                        </form>
+                        <h6>Comentario do suco de laranja do Jailson</h6>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img src="http://www.regrom.com/wp-content/uploads/2017/07/2006BF4261-400x400.jpg" />
+                        <figcaption>Jailson Mendes</figcaption>
+                    </figure>
+                    <h5>Comentario do suco de laranja do Jailson</h5>
+                    <div class="answer-comment">
+                        <form>
+                            <button class="fas fa-heart-square" type="button">❤</button>
+                            <h6 class="counter">0</h6>
+                            <textarea maxlength="20"></textarea>
+                        </form>
+                        <h6>Comentario do suco de laranja do Jailson</h6>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img src="http://www.regrom.com/wp-content/uploads/2017/07/2006BF4261-400x400.jpg" />
+                        <figcaption>Jailson Mendes</figcaption>
+                        <figcaption>Jailson Mendes</figcaption>
+                    </figure>
+                    <h5>Comentario do suco de laranja do Jailson</h5>
+                    <div class="answer-comment">
+                        <form>
+                            <button class="fas fa-heart-square" type="button">❤</button>
+                            <h6 class="counter">0</h6>
+                            <textarea maxlength="20"></textarea>
+                        </form>
+                        <h6>Comentario do suco de laranja do Jailson</h6>
+                    </div>
+                </div>
+                <div>
+                    <figure>
+                        <img src="http://www.regrom.com/wp-content/uploads/2017/07/2006BF4261-400x400.jpg" />
+                        <figcaption>Jailson Mendes</figcaption>
+                    </figure>
+                    <h5>Comentario do suco de laranja do Jailson</h5>
+                    <div class="answer-comment">
+                        <form>
+                            <button class="fas fa-heart-square" type="button">❤</button>
+                            <h6 class="counter">0</h6>
+                            <textarea maxlength="20"></textarea>
+                        </form>
+                        <h6>Comentario do suco de laranja do Jailson</h6>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 </body>
 </html>

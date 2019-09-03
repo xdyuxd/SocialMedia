@@ -1,7 +1,7 @@
-﻿$(document).ready(function editbio() {
-    document.getElementById("#bio-text").contenteditable = true;
+﻿$(document).ready(function (e) {
+    $("#counter-button").on("click", function () {
+        $(".counter").addClass('counter--show');
+        $('.counter--show').removeClass("counter");
+    })
 });
 
-$("#bio-edit-button").on("click", function () {
-    editbio();
-});
