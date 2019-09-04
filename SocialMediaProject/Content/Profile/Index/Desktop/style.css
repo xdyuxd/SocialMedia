@@ -7,8 +7,9 @@
 .cover-photo {
     top: 0%;
     background-color: rgb(216, 216, 216);
-    width: 100%;
+    max-width: 1500px;
     height: 300px;
+    width: 100%;
 }
 
 .status-bar {

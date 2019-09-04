@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <title>@ViewBag.Title - Social Media</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    @Scripts.Render("~/bundles/jquery")
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="~/Content/Home/Index/Desktop/script.js"></script>
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/Shared/Home/style.css")
-    @Styles.Render("~/Content/home/index/desktop/style.css")
-    @Styles.Render("~/Content/font-awesome.css")
-    @Scripts.Render("~/bundles/modernizr")
-
-</head>
+    <head>
+        <title>@ViewBag.Name - Profile</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        @Scripts.Render("~/bundles/jquery")
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="~/Content/Home/Index/Profile/script.js"></script>
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/Shared/Profile/style.css")
+        @Styles.Render("~/Content/Profile/Index/Desktop/style.css")
+        @Styles.Render("~/Content/font-awesome.css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
     <body>
         <div class="navbar navbar-fixed-top">
             <div class="logo">
@@ -38,9 +37,5 @@
 
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
-        <div class="footer">
-            <p>Copyright 2019 Yuri C Kaminski e João Pedro PA Silva</p>
-        </div>
     </body>
 </html>
-

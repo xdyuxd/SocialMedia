@@ -143,8 +143,9 @@
     <Content Include="Content\Home\Index\Desktop\script.js" />
     <Content Include="Content\Profile\Index\Desktop\script.js" />
     <Content Include="Content\Profile\Index\Desktop\style.css" />
-    <Content Include="Content\Shared\style.css" />
+    <Content Include="Content\Shared\Home\style.css" />
     <Content Include="Content\Home\Index\Desktop\style.css" />
+    <Content Include="Content\Shared\Profile\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -220,6 +221,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_HomeLayout.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Shared\_ProfileLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

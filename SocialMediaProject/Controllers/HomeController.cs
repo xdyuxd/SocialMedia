@@ -13,7 +13,7 @@ namespace SocialMedia.Controllers
 {
     public class HomeController : Controller
     {
-        private string url = "https://localhost:44331/api";
+        private string url = "https://socialmedia-api.azurewebsites.net/api";//"https://localhost:44331/api";
         private string url_create = "/client/create";
 
         [HttpGet]
@@ -70,6 +70,13 @@ namespace SocialMedia.Controllers
                     if (dict.ContainsValue(uk))
                     {
                         Session["Client"] = dict["Nickname"];
+                        Session["ClientCollection"] = new Dictionary<string, string>() {
+                            { "Nickname", dict["Nickname"] },
+                            { "Name", dict["Name"] },
+                            { "Surname", dict["Surname"] },
+                            { "Bio", dict["Bio"] },
+                            { "Profile_pic", dict["Profile_pic"]},
+                            };
                     }
                     //TODO: Create POST to login and send encrypted key.
                 }
