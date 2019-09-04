@@ -1,138 +1,4 @@
-﻿::selection {
-    background-color: #d492f1;
-}
-
-body {
-    background-color: rgb(220, 220, 220);
-    font-family: 'Roboto', sans-serif;
-    padding-top: 0px;
-}
-
-.gradient {
-    background-image: linear-gradient(72deg, rgba(199,179,255,100), rgba(212,208,162,83));
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    width: 100%;
-    z-index: -10;
-}
-
-.container {
-    align-content: flex-start;
-    align-items: baseline;
-    display: flex;
-    flex-direction: column;
-    height: 85px;
-    justify-content: center;
-}
-
-.navbar {
-    display: flex;
-    position: relative;
-    justify-content: unset !important;
-}
-
-.logo {
-    border: none;
-    display: flex;
-    float: left;
-    height: 45px;
-    position: relative;
-    top: 50%;
-    width: 45px;
-}
-
-.logo-icon {
-    background: url("https://i.imgur.com/DZE7h4J.png") no-repeat;
-}
-
-.search {
-    background-color: rgba(255, 255, 255, 0.3);
-    background-clip: padding-box;
-    border-color: transparent;
-    border-radius: 5px;
-    color: #495057;
-    font-family: FontAwesome, 'Roboto', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    height: calc(1.5em + 0.75rem + 2px);
-    line-height: 1.5;
-    margin-left: 10px;
-    position: relative;
-    top: 50%;
-    width: 100%;
-}
-
-    .search:focus {
-        background-color: white;
-        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0);
-    }
-
-.fa-user-circle {
-    background-color: #ececec;
-    border-radius: 50px;
-    color: #767377;
-    font-size: 26px !important;
-    position: absolute;
-    right: 45px;
-}
-
-.fa-sort-up {
-    color: white;
-    font-size: 26px !important;
-    position: absolute;
-    top: -10px;
-    right: 15px;
-}
-
-.dropdown-menu {
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    border-color: transparent;
-    border-bottom-width: 0px;
-    box-shadow: 0 0 1 rgba(0, 0, 0, 0.5) !important;
-    padding-bottom: 0px;
-    position: absolute;
-    left: auto;
-    top: 52px;
-    right: 35px;
-}
-
-.dropdown-header {
-    font-weight: bold;
-    text-align: center;
-    user-select: none;
-    -moz-user-select: none;
-}
-
-.dropdown-form {
-    background-clip: padding-box;
-    background-color: #fff;
-    border: 0px solid #e5e5e5;
-    border-radius: 0px;
-    color: #495057;
-    display: block;
-    font-size: 1rem;
-    font-weight: 400;
-    height: calc(1.5em + 0.75rem + 2px);
-    line-height: 1.5;
-    padding-left: 20px;
-    padding-right: 20px;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    width: 100%;
-}
-
-.dropdown-button {
-    background-color: #d492f1;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    color: white;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    text-align: center;
-}
-
-.welcome_text {
+﻿h3 {
     color: white;
     margin: 35px;
     flex-wrap: wrap;
@@ -151,6 +17,14 @@ body {
     flex-flow: row wrap;
     justify-content: center;
     padding-top: 15px;
+    position: relative;
+}
+
+.container-main span {
+    color: red;
+    font-weight: 600;
+    position: absolute;
+    top: 0;
 }
 
 .box-registration {
@@ -162,7 +36,18 @@ body {
     margin: 15px;
 }
 
-.register-form {
+.box-login {
+    align-items: center;
+    display: none;
+    order: 4;
+    flex-direction: column;
+    padding: 90px 15px 15px 15px;
+    margin: 15px;
+}
+
+.container-main div form input[type="text"],
+.container-main div form input[type="date"],
+.container-main div form input[type="password"] {
     background-color: #fff;
     background-clip: padding-box;
     border: 0px solid #ced4da;
@@ -184,7 +69,35 @@ body {
     width: 100%;
 }
 
-.register-form-sign-up {
+.login-buttons {
+    height: 38px;
+    width: 100%;
+}
+
+.container-main div form input[type="submit"],
+.container-main div form div div {
+    border: 0px;
+    color: white;
+    display: inline-block;
+    height: 100%;
+    line-height: 250%;
+    text-align: center;
+    user-select: none;
+    width: 50%;
+    -moz-user-select: none;
+}
+
+.register-button-sign-up {
+    background-color: rgb(212, 146, 241);
+    float: left;
+}
+
+.register-button-login {
+    background-color: rgb(155, 155, 155);
+    cursor: pointer;
+}
+
+.login-button {
     background-color: rgb(212, 146, 241);
     color: white;
     display: inline-block;
@@ -197,7 +110,7 @@ body {
     -moz-user-select: none;
 }
 
-.register-form-login {
+.login-button-back {
     background-color: rgb(155, 155, 155);
     color: white;
     display: inline-block;
@@ -228,23 +141,7 @@ body {
     max-width: 600px;
 }
 
-.box_login {
-    display: flex;
-    order: 4;
-    flex-direction: column;
-    align-items: center;
-    width: 20%;
-    display: none;
-}
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    width: 100%;
-}
 
 
 .footer {

@@ -4,41 +4,40 @@
 
 <div class="gradient"></div>
 
-<h3 class="welcome_text">Welcome to the Social Media!</h3>
+<h3>Welcome to the Social Media!</h3>
 <div class="container-main">
     @*<div class="box_template_image">
             <img src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2017/02/17160524/social-media-walls-for-events.jpg" class="template_image_login" />
         </div>*@
-    <div class="box-registration" id="box-registration">
-        <form class="form-group">
-            <input type="text" class="register-form" id="first_name" placeholder="Name">
-            <input type="text" class="register-form" id="last_name" placeholder="Surname">
-            <input type="date" class="register-form" id="birthdate">
-            <input type="text" class="register-form" id="nickname" placeholder="Nickname">
-            <input type="text" class="register-form" id="email" placeholder="E-mail">
-            <input type="password" class="register-form" id="password" placeholder="Password">
+    <span>@ViewBag.Error</span>
+    <div class="box-registration">
+        @using (Html.BeginForm("create", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="surname" placeholder="Surname">
+            <input type="date" name="birthdate">
+            <input type="text" name="nickname" placeholder="Nickname">
+            <input type="text" name="email" placeholder="E-mail">
+            <input type="password" name="password" placeholder="Password">
             <div class="register-buttons">
-                <div class="register-form-sign-up">Sign up</div>
-                <div class="register-form-login">Login</div>
+                <input type="submit" class="register-button-sign-up" value="Sign Up">
+                <div class="register-button-login">Login</div>
             </div>
-        </form>
+        }
     </div>
-    <div class="box_login" id="box_login">
-        <form class="form-group">
-            <div class="col-xs-8">
-                <input type="text" class="form-control" placeholder="Email">
+    <div class="box-login">
+        @using (Html.BeginForm("login", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="text" name="uk" placeholder="Email or nickname">
+            <input type="password" name="password" placeholder="Password">
+            <div class="login-buttons">
+                <input type="submit" class="login-button" value="Login" />
+                <div class="login-button-back">Back</div>
             </div>
-            <div class="col-xs-8">
-                <input type="password" class="form-control" placeholder="Senha">
-            </div>
-            <div class="form_buttons">
-                <button class="btn btn-light login_button" type="button" id="login_button">Realizar login</button>
-            </div>
-            <div class="form_buttons">
-                <button class="btn btn-light login_button" type="button" id="button_return">Voltar</button>
-            </div>
-        </form>
-    </div>
+        }
+        </div>
 </div>
 
 
