@@ -2,7 +2,6 @@
     padding-top: 0%;
     background-color: rgb(234, 234, 234);
     background: -moz-radial-gradient(center, ellipse cover, rgba(255,204,255,1) 0%, rgba(255,255,255,1) 100%);
-
 }
 
 .cover-photo {
@@ -35,7 +34,7 @@
 }
 
 
-.bio-text{
+.bio-text {
     margin-top: 8%;
 }
 
@@ -60,7 +59,7 @@
 }
 
 
-.profile-name{
+.profile-name {
     max-height: 100px;
     max-width: 250px;
     align-self: center;
@@ -91,7 +90,6 @@
     -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
     box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
     border-radius: 5%;
-
 }
 
 .profile-items {
@@ -119,12 +117,12 @@
     height: auto;
 }
 
-.row{
+.row {
     width: 600px;
     height: 600px;
 }
 
-.comments-post{
+.comments-post {
     width: 80%;
     display: flex;
     background-color: white;
@@ -204,16 +202,15 @@
     width: 80%;
 }
 
-.comments h6 {
-    font-size: 12px;
-    padding-left: 60px;
-}
+    .comments h6 {
+        font-size: 12px;
+        padding-left: 60px;
+    }
 
 
 .answer-comment form {
     margin-bottom: 10px;
     width: 100%;
-
 }
 
 .answer-comment button {
@@ -254,7 +251,7 @@
 }
 
 .counter--show {
-    display:block;
+    display: block;
 }
 
 .counter {

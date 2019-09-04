@@ -9,7 +9,7 @@ namespace SocialMedia.Controllers
     public class ProfileController : Controller
     {
         [HttpGet]
-        public ActionResult Profile(string nickname)
+        public ActionResult Index(string nickname)
         {
             return View();
         }
