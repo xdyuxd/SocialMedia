@@ -8,8 +8,14 @@ namespace SocialMedia.Controllers
 {
     public class ProfileController : Controller
     {
-        // GET: Profile
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Profile(string nickname)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult FriendList(string nickname)
         {
             return View();
         }
