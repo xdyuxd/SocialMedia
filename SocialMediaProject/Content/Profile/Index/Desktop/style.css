@@ -4,6 +4,203 @@
     background: -moz-radial-gradient(center, ellipse cover, rgba(255,204,255,1) 0%, rgba(255,255,255,1) 100%);
 }
 
+.locked {
+    overflow: hidden;
+}
+.show {
+    display: block;
+}
+
+/* POP UP */
+.profile-settings-block {
+    background: black;
+    display: none;
+    height: 100%;
+    opacity: 0.2;
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+}
+
+.profile-settings {
+    background-color: white;
+    bottom: 0;
+    border-radius: 25px;
+    display: none;
+    height: 100%;
+    left: 0;
+    margin: auto;
+    max-height: 650px;
+    max-width: 550px;
+    overflow: hidden;
+    padding: 0px 15px 0px 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 6;
+}
+
+.settings-header {
+    border-bottom: 2px solid #d492f1;
+    margin-bottom: 0px;
+    padding: 10px;
+    height: auto;
+}
+
+.settings-header h3 {
+    color: rgb(212, 146, 241);
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0px;
+    transform: translateX(-15px);
+}
+
+.settings-header i {
+    color: #d492f1;
+    cursor: pointer;
+    float: left;
+    font-size: 24px;
+    font-weight: 100;
+}
+
+.settings-body {
+    height: 550px;
+    overflow-y: auto;
+}
+
+.settings-cover-photo {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+    transition: box-shadow 0.2s;
+    width: 100%;
+}
+
+.settings-cover-photo:hover {
+    box-shadow: inset 0px 0px 15px 5px #d5d5d5;
+}
+
+.settings-cover-photo:hover i {
+    bottom: 0;
+    color: #b7b7b7;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    display: block;
+}
+
+.settings-body img {
+    background-color: #c4c4c4;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.8s ease;
+    width: 100%;
+    z-index: -1;
+}
+
+.settings-cover-photo:hover img{
+    transform: scale(1.1);
+}
+
+.settings-cover-photo input {
+    cursor: pointer;
+    height: 100%;
+    max-width: none;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.settings-cover-photo i {
+    position: absolute;
+    display: none;
+}
+
+
+.settings-profile-photo {
+    border-radius: 100px;
+    border: 2px solid #d492f1;
+    cursor: pointer;
+    height: 125px;
+    left: 25px;
+    margin: auto;
+    overflow: hidden;
+    position: absolute;
+    transition: box-shadow 0.2s;
+    top: 175px;
+    width: 125px;
+}
+
+.settings-profile-photo:hover {
+    box-shadow: inset 0px 0px 15px 5px #d5d5d5;
+}
+
+.settings-profile-photo:hover i {
+    bottom: 0;
+    color: #b7b7b7;
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    right: 45%;
+    display: block;
+}
+
+.settings-profile-photo img {
+    height: 100%;
+    position: absolute;
+    transition: transform 0.8s ease;
+    width: 100%;
+    z-index: -1;
+}
+
+.settings-profile-photo:hover img {
+    transform: scale(1.1);
+}
+
+.settings-profile-photo input {
+    cursor: pointer;
+    height: 100%;
+    max-width: none;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.settings-profile-photo i {
+    position: absolute;
+    display: none;
+}
+
+.settings-fullname {
+    margin: 75px
+    margin-bottom: 35px;
+    margin-top: 75px;
+    margin-left: 15px;
+    padding-left: 5px;
+}
+
+.settings-fullname label{
+    color: grey;
+    display: block;
+}
+
+.settings-fullname div:first-child {
+    float: left;
+    margin-right: 50px;
+}
+
+.settings-fullname input[type=text] {
+    border: 0px solid  transparent;
+    border-bottom: 1px solid gray;
+}
+}
+
+/* POP UP END */
+
 .cover-photo {
     top: 0%;
     background-color: rgb(216, 216, 216);
@@ -34,10 +231,6 @@
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.10);
 }
 
-
-.bio-text {
-    margin-top: 8%;
-}
 
 .profile-box {
     display: flex;
@@ -258,3 +451,5 @@
 .counter {
     display: none;
 }
+
+

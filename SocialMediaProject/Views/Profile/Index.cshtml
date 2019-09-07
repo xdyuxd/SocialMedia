@@ -1,12 +1,51 @@
-﻿<div class="cover-photo">
+﻿<div class="profile-settings-block">
+
+</div>
+<div class="profile-settings">
+    <div class="settings-header">
+        <i class="fa fa-times"></i>
+        <h3>Edit Profile</h3>
+    </div>
+    <div class="settings-body">
+        <form>
+            <div class="settings-cover-photo">
+                <i class="fa fa-camera"></i>
+                <input type="file" />
+                <img />
+            </div>
+            <div class="settings-profile-photo">
+                <i class="fa fa-camera"></i>
+                <input type="file" />
+                <img />
+            </div>
+            <div class="settings-fullname">
+                <div>
+                    <label>Name</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Surname</label>
+                    <input type="text" />
+                </div>
+            </div>
+            <label>Bio</label>
+            ​<textarea></textarea>
+            <label>Birthdate</label>
+            <input type="date" />
+        </form>
+    </div>
+</div>
+
+
+
+<div class="cover-photo">
     @*<img class="cover-photo" src="https://i.imgur.com/0T9GiaQ.jpg" /></img>*@
 </div>
 
 <div class="status-bar">
     <div class="bio">
-        <div class="bio-title">BIOGRAFIA</div>
-        <div id="bio-text" class="bio-text">Escreva aqui sua biografia, um pouco de fatos particulares de sua vida.</div>
-        <button id="bio-edit-button" type="button" class="btn btn-light btn-sm bio-button" style="margin-top: 20px">Editar Biografia</button>
+        <div id="bio-text" class="bio-text">@ViewBag.Bio</div>
+        <button id="profile-edit" type="button" class="btn btn-light btn-sm bio-button">Editar Perfil</button>
     </div>
     <div class="profile-box">
         <img class="profile-photo" src="https://i.imgur.com/nTCZIMxl.jpg"></img>
@@ -98,3 +137,5 @@
             </div>
         </div>
     </div>
+</div>
+
