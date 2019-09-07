@@ -12,6 +12,7 @@ namespace SocialMedia.Controllers
         public ActionResult Index(string nickname)
         {
             ViewBag.Name = "Name";
+            ViewBag.Bio = "Escreva aqui sua biografia, um pouco de fatos particulares de sua vida.";
             if ((string)Session["Client"] == nickname)
             {
                 Dictionary<string, string> client = (Dictionary<string, string>)Session["ClientCollection"];
