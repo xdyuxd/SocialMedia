@@ -30,5 +30,12 @@ namespace SocialMedia.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Logout()
+        {
+            Session["Client"] = null;
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
