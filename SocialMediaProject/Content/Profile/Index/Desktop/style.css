@@ -444,10 +444,6 @@
     font-size: 15px;
 }
 
-.counter--show {
-    display: block;
-}
-
 .counter {
     display: none;
 }

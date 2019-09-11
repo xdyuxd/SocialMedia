@@ -38,6 +38,12 @@ namespace SocialMediaProject
             );
 
             routes.MapRoute(
+                name: "Logout",
+                url: "logout",
+                defaults: new { controller = "Profile", action = "Logout" }
+            );
+
+            routes.MapRoute(
                 name: "Profile",
                 url: "{nickname}",
                 defaults: new { controller = "Profile", action = "Index", nickname = "" }
@@ -49,11 +55,6 @@ namespace SocialMediaProject
                 defaults: new { controller = "Profile", action = "FriendList", nickname = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
-                name: "Logout",
-                url: "logout",
-                defaults: new { controller = "Profile", action = "Logout" }
-            );
         }
     }
 }

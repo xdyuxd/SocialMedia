@@ -53,8 +53,21 @@
     /* POP UP END */
 
     $("#counter-button").on("click", function () {
-        $(".counter").addClass('counter--show');
-        $('.counter--show').removeClass("counter");
+        $(".counter").show();
+    });
+
+
+    $("#counter-button").on("click", function () {
+        var likes = parseInt($('.counter').text());
+        likes++;
+        $(".counter").text(likes);
+    });
+
+    $("#dropdown-button-logout").on("click", function () {
+        $.ajax({
+            type: "post",
+            url: "https://localhost:44347/logout"
+        })
     });
 });
 
