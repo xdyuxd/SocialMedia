@@ -67,6 +67,8 @@
         $.ajax({
             type: "post",
             url: "https://localhost:44347/logout"
+        }).done(function (data) {
+            window.location.replace(data.url);
         })
     });
 });

@@ -1,14 +1,11 @@
 ﻿body {
     padding-top: 0%;
     background-color: rgb(234, 234, 234);
-    background: -moz-radial-gradient(center, ellipse cover, rgba(255,204,255,1) 0%, rgba(255,255,255,1) 100%);
+    //background: -moz-radial-gradient(center, ellipse cover, rgba(255,204,255,1) 0%, rgba(255,255,255,1) 100%);
 }
 
 .locked {
     overflow: hidden;
-}
-.show {
-    display: block;
 }
 
 /* POP UP */
@@ -176,7 +173,7 @@
 }
 
 .settings-fullname {
-    margin: 75px
+    margin: 75px;
     margin-bottom: 35px;
     margin-top: 75px;
     margin-left: 15px;
@@ -201,22 +198,43 @@
 
 /* POP UP END */
 
+
+/* PROFILE BAR */
+
 .cover-photo {
-    top: 0%;
-    background-color: rgb(216, 216, 216);
-    max-width: 1500px;
-    height: 300px;
-    width: 100%;
+    //This class is with problems to be recognized so it was moved to profile shared layout.
+}
+
+.cover-photo div {
+    background: grey;
+    height: 350px;
+    left: 0;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    right: 0;
+    top: 0;
+    width: 1500px;
+    z-index: -1;
+}
+
+.cover-photo div img {
+    position: absolute;
+    top: 0;
 }
 
 .status-bar {
+    align-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
     display: flex;
     flex-direction: row;
-    background-color: white;
-    width: 100%;
-    align-items: center;
-    align-content: space-around;
+    margin: 265px auto auto auto;
+    max-width: 1500px;
     justify-content: space-around;
+    position: relative;
+    width: 100%;
 }
 
 .bio {

@@ -35,7 +35,7 @@ namespace SocialMedia.Controllers
         public ActionResult Logout()
         {
             Session["Client"] = null;
-            return RedirectToAction("Index", "Home");
+            return Json(new { url = Url.Action("Index", "Home") });
         }
     }
 }
