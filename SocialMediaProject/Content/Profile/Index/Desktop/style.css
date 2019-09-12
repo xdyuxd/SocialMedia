@@ -211,88 +211,91 @@
     height: 350px;
     left: 0;
     margin: auto;
+    max-width: 1500px;
     overflow: hidden;
     position: relative;
     right: 0;
     top: 0;
-    width: 1500px;
+    width: 100%;
     z-index: -1;
 }
 
 .cover-photo div img {
-    position: absolute;
+    //position: absolute;
     top: 0;
 }
 
-.status-bar {
-    align-content: space-around;
-    align-items: center;
+.profile {
     background-color: white;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: row;
+    border-radius: 15px 15px 0px 0px;
+    height: 200px;
     margin: 265px auto auto auto;
     max-width: 1500px;
-    justify-content: space-around;
     position: relative;
     width: 100%;
 }
 
-.bio {
-    display: flex;
-    flex-direction: column;
-    font-size: 15px;
-    align-items: center;
-    background: rgb(254,243,255);
-    background: radial-gradient(circle, rgba(254,243,255,0.80) 27%, rgba(253,233,255,0.80) 68%);
-    border-radius: 5px;
-    padding: 30px 30px 30px 30px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.10);
-}
-
-
-.profile-box {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    width: 250px;
-    height: 250px;
-    left: 50%;
-    right: 50%;
-}
-
 .profile-photo {
-    background-color: rgb(216, 216, 216);
-    width: 200px;
-    height: 200px;
-    line-height: 200px;
     border-radius: 50%;
     border: 5px solid white;
+    height: 200px;
+    left: 50px;
+    overflow: hidden;
+    position: absolute;
+    top: -100px;
+    width: 200px;
+    z-index: 2;
 }
 
+.profile-photo img {
+    width: 100%;
+}
 
 .profile-name {
+    left: 275px;
+    position: absolute;
+    top: -45px;
+}
+
+.profile-name h2 {
+    color: white;
     max-height: 100px;
     max-width: 250px;
-    align-self: center;
     font-size: 30px;
 }
 
-.friend-list {
-    display: grid;
-    align-items: center;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    grid-gap: 20px;
-    justify-items: center;
-    align-items: center;
-    background: rgb(254,243,255);
-    background: radial-gradient(circle, rgba(254,243,255,0.80) 27%, rgba(253,233,255,0.80) 68%);
-    border-radius: 5px;
-    padding: 30px 30px 30px 30px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.10);
+.profile-bio {
+    display: block;
+    float: left;
+    height: 175px;
+    margin-left: 260px;
+    padding-top: 15px;
+    margin-right: 15%;
+    position: relative;
+    width: 400px;
 }
+
+.profile-bio h3 {
+    color: #464646;
+    text-align: justify;
+    font-size: 18px;
+    word-wrap: break-word;
+}
+
+.profile-friends {
+    background-color: red;
+    float: left;
+    height: 200px;
+    width: 400px;
+}
+
+.profile-friends h3 {
+    font-size: 24px;
+    text-align: center;
+}
+
+
+
 
 .friend-thumb {
     width: 80px;

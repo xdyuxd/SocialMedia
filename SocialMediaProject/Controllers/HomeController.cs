@@ -13,7 +13,7 @@ namespace SocialMedia.Controllers
 {
     public class HomeController : Controller
     {
-        private string url = "https://socialmedia-api.azurewebsites.net/api";//"https://localhost:44331/api";
+        private string url = "https://localhost:44331/api"; //"https://socialmedia-api.azurewebsites.net/api";//"https://localhost:44331/api";
         private string url_create = "/client/create";
 
         [HttpGet]
