@@ -71,5 +71,28 @@
             window.location.replace(data.url);
         })
     });
+
+    $(".comment-button").on("click", function () {
+        var comment = 
+            '<div class="comments"><div>' +
+            '<figure>' +
+            ' <img src="" />' +
+            '<figcaption></figcaption>' +
+            '</figure>' +
+            ' <h5></h5>' +
+            '<div class="answer-comment">' +
+            '<form>' +
+            '<button class="fas fa-heart-square" id="counter-button" type="button">❤</button>' +
+            '<h6 class="counter">0</h6>' +
+            '<textarea maxlength="20"></textarea>' +
+            '</form>' +
+            '<h6></h6>' +
+            '</div>' +
+            '</div>' +
+            '</div>';         
+
+        $('.comments-1').prepend(comment);
+        console.log("Makonha");
+    });
 });
 
