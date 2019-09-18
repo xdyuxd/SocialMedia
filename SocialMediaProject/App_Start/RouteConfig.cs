@@ -50,6 +50,12 @@ namespace SocialMediaProject
             );
 
             routes.MapRoute(
+                name: "Profile Error",
+                url: "{nickname}/error",
+                defaults: new { controller = "Profile", action = "Error" }
+            );
+
+            routes.MapRoute(
                 name: "Profile-List-Friend",
                 url: "{nickname}/friend",
                 defaults: new { controller = "Profile", action = "FriendList", nickname = UrlParameter.Optional }
