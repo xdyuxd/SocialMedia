@@ -25,24 +25,24 @@ namespace SocialMedia.Controllers
             }
             else
             {
-                try
-                {
-                    using (HttpClient client = new HttpClient())
-                    {
-                        HttpResponseMessage response = await client.GetAsync($"{url}/client/{nickname}");
-                        response.EnsureSuccessStatusCode();
-                        string r = await response.Content.ReadAsStringAsync();
-                        if (r.Contains("Not Found."))
-                        {
-                            return RedirectToAction("Error");
-                        }
-                        var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(r);
-                    }
-                }
-                catch
-                {
-                    return RedirectToAction("Error");
-                }
+                //try
+                //{
+                //    using (HttpClient client = new HttpClient())
+                //    {
+                //        HttpResponseMessage response = await client.GetAsync($"{url}/client/{nickname}");
+                //        response.EnsureSuccessStatusCode();
+                //        string r = await response.Content.ReadAsStringAsync();
+                //        if (r.Contains("Not Found."))
+                //        {
+                //            return RedirectToAction("Error");
+                //        }
+                //        var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(r);
+                //    }
+                //}
+                //catch
+                //{
+                //    return RedirectToAction("Error");
+                //}
             }
             return View();
         }
