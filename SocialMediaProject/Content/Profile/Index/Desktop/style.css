@@ -291,7 +291,7 @@
     float: left;
     height: 175px;
     margin-left: 260px;
-    padding-top: 15px;
+    margin-top: 15px;
     margin-right: 15%;
     position: relative;
     width: 400px;
@@ -305,10 +305,9 @@
 }
 
 .profile-friends {
-    background-color: red;
+    margin: 15px;
     float: left;
-    height: 200px;
-    width: 400px;
+    width: 200px;
 }
 
 .profile-friends h3 {
@@ -316,19 +315,28 @@
     text-align: center;
 }
 
+.profile-friends div:not([class="friend-thumb"]) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+}
 
-
-
-.friend-thumb {
-    width: 80px;
-    height: 80px;
+.profile-friends .friend-thumb {
     background-image: url(https://i.imgur.com/nTCZIMx.jpg);
     background-size: cover;
-    -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
-    -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
-    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
     border-radius: 5%;
+    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
+    height: 55px;
+    width: 55px;
+
+    -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
+    -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
 }
+
+
+
+
 
 .profile-items {
     background-color: white;

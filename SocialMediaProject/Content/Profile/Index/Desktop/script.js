@@ -28,7 +28,7 @@
         document.querySelector(".settings-profile-photo img").remove();
     });
 
-    $("#profile-edit").on("click", function () {
+    $(".fa-edit").on("click", function () {
         document.querySelector("body").classList.add("locked");
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
@@ -36,7 +36,7 @@
         $(".profile-settings").show();
     });
 
-    $("#profile-edit").on("click", function () {
+    $(".fa-edit").on("click", function () {
         document.querySelector("body").classList.add("locked");
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
