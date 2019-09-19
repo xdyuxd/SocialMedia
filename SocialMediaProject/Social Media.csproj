@@ -242,7 +242,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Home\Index\Mobile\" />
-    <Folder Include="Views\Client\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

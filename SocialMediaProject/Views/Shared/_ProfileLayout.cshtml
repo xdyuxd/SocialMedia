@@ -21,12 +21,22 @@
             <div class="logo">
                 <input type="image" src="https://i.imgur.com/DZE7h4J.png" class="logo-icon" />
             </div>
-            <input class="search col-lg-6" type="search" placeholder="  |  Search">
+            @using (Html.BeginForm("search", "Profile", FormMethod.Post))
+            {
+                <input class="search col-lg-6" name="nickname" type="search" placeholder="  |  Search">
+            }
+            <div class="uploud-button">
+                <input type="file" />
+                <i class="fas fa-upload"></i>
+            </div>
+            <div class="notification-button">
+                <i class="fas fa-bell"></i>
+            </div>
             <i class="fa fa-user-circle" type="button" data-toggle="dropdown"></i>
             <ul class="dropdown-menu shadow">
                 <i class="fa fa-sort-up"></i>
                 <form>
-                    <div id="dropdown-button-logout" class="dropdown-button">LogOut</div>
+                    <div id="dropdown-button-logout" class="dropdown-button">Logout</div>
                 </form>
                 <li class="divider"></li>
             </ul>

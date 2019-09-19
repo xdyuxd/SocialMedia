@@ -69,8 +69,8 @@ namespace SocialMedia.Controllers
         [HttpPost]
         public string UpdateProfileCollection()
         {
-            //try
-            //{
+            try
+            {
                 Dictionary<string, object> client = (Dictionary<string, object>)Session["ClientCollection"];
                 Session["ClientCollection"] = new Dictionary<string, object>() {
                             { "Nickname", client["Nickname"] },
@@ -82,11 +82,17 @@ namespace SocialMedia.Controllers
                             };
 
                 return "The Bio was updated!";
-            //}
-            //catch
-            //{
-            //    return "Failed";
-            //}
+            }
+            catch
+            {
+                return "Failed";
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Search(string nickname)
+        {
+            return RedirectToAction("Index", nickname);
         }
 
 

@@ -53,10 +53,39 @@ body {
     width: 100%;
 }
 
-    .search:focus {
-        background-color: white;
-        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0);
-    }
+.search:focus {
+    background-color: white;
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0);
+}
+
+.uploud-button {
+    position: absolute;
+    right: 180px;
+}
+
+.uploud-button input[type=file] {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+}
+
+.uploud-button i {
+    color: white;
+    font-size: 18px;
+    z-index: 5;
+}
+
+.notification-button {
+    position: absolute;
+    right: 100px;
+}
+
+.notification-button i {
+    color: white;
+    font-size: 18px;
+    z-index: 5;
+}
 
 .fa-user-circle {
     background-color: #ececec;

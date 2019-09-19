@@ -330,9 +330,22 @@
 
 .profile-name h2 {
     color: white;
+    margin-right: 5px;
     max-height: 100px;
     max-width: 250px;
+    float: left;
     font-size: 30px;
+}
+
+.profile-name i {
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.profile-name i:hover {
+    opacity: 1;
 }
 
 .profile-bio {
@@ -354,6 +367,8 @@
 }
 
 .profile-friends {
+    position: absolute;
+    right: 150px;
     margin: 15px;
     float: left;
     width: 200px;
@@ -388,7 +403,7 @@
     border: 2px solid #e0e0e0;
     border-radius: 5px;
     cursor: pointer;
-    display: flex;
+    display: none; //flex;
     height: 40px;
     right: 5%;
     padding: 5px 8px 5px 8px;

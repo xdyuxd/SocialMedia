@@ -1,5 +1,10 @@
 ﻿$(document).ready(function (e) {
 
+    //if (window.location.pathname.substr(1) == ) {
+    //    $("profile-request").css("display", "flex");
+    //    $("profile-request").show();
+    //}
+
     /* POP UP START */
 
     function Reader(e) {
@@ -79,8 +84,6 @@
         UpdateBio(type, url_update, name, surname, bio);
         type = "POST";
         UpdateBio(type, url_session_update, name, surname, bio);
-
-
     });
 
 
@@ -137,6 +140,13 @@
 
         }
     });
+
+
+
+
+
+
+
 
     /* REQUEST TO BE FRIEND BUTTON END */
 

@@ -40,6 +40,12 @@ namespace SocialMediaProject
             /* PROFILE START */
 
             routes.MapRoute(
+                name: "Search Profile",
+                url: "search/{nickname}",
+                defaults: new { controller = "Profile", action = "Search" }
+            );
+
+            routes.MapRoute(
                 name: "Logout",
                 url: "logout",
                 defaults: new { controller = "Profile", action = "Logout" }
