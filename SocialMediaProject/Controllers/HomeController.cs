@@ -75,7 +75,8 @@ namespace SocialMedia.Controllers
                             { "Name", dict["Name"] },
                             { "Surname", dict["Surname"] },
                             { "Bio", dict["Bio"] },
-                            { "Profile_pic", dict["Profile_pic"]},
+                            { "Profile_pic", dict["Profile_pic"] },
+                            { "Birthdate", dict["Birthdate"] }
                             };
                     }
                     //TODO: Create POST to login and send encrypted key.

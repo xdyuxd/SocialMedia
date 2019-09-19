@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
@@ -13,7 +14,7 @@ namespace SocialMedia.Controllers
     {
         private string url = "https://localhost:44331/api";
 
-        [HttpGet, OutputCache(Duration = 60 * 15, VaryByParam = "none")]
+        [HttpGet]
         public async Task<ActionResult> Index(string nickname)
         {
             ViewBag.Title = "Name - Profile";
@@ -24,6 +25,9 @@ namespace SocialMedia.Controllers
                 Dictionary<string, object> client = (Dictionary<string, object>)Session["ClientCollection"];
                 ViewBag.Title = $"{client["Name"]} - Profile";
                 ViewBag.Name = client["Name"];
+                ViewBag.Surname = client["Surname"];
+                ViewBag.Bio = client["Bio"];
+                ViewBag.Birthdate = client["Birthdate"];
             }
             else
             {
@@ -63,11 +67,28 @@ namespace SocialMedia.Controllers
         }
 
         [HttpPost]
-        public ActionResult Logout()
+        public string UpdateProfileCollection()
         {
-            Session["Client"] = null;
-            return Json(new { url = Url.Action("Index", "Home") });
+            //try
+            //{
+                Dictionary<string, object> client = (Dictionary<string, object>)Session["ClientCollection"];
+                Session["ClientCollection"] = new Dictionary<string, object>() {
+                            { "Nickname", client["Nickname"] },
+                            { "Name", Request.Headers.GetValues("Name")[0] ?? client["Client"] },
+                            { "Surname", Request.Headers.GetValues("Surname")[0] },
+                            { "Bio", Request.Headers.GetValues("Bio")[0]},
+                            { "Profile_pic", Request.Headers.GetValues("Profile_pic") ?? client["Profile_pic"] },
+                            { "Birthdate", Request.Headers.GetValues("Birthdate") ?? client["Birthdate"] }
+                            };
+
+                return "The Bio was updated!";
+            //}
+            //catch
+            //{
+            //    return "Failed";
+            //}
         }
+
 
         [HttpPost]
         public string GetCurrentClient()
@@ -76,6 +97,13 @@ namespace SocialMedia.Controllers
                 return (string)Session["Client"];
             else
                 return "Not Found.";
+        }
+
+        [HttpPost]
+        public ActionResult Logout()
+        {
+            Session["Client"] = null;
+            return Json(new { url = Url.Action("Index", "Home") });
         }
 
         [HttpGet]

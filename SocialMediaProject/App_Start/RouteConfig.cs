@@ -58,6 +58,12 @@ namespace SocialMediaProject
            );
 
             routes.MapRoute(
+                name: "Profile Bio Update",
+                url: "{nickname}/update/bio",
+                defaults: new { controller = "Profile", action = "UpdateProfileCollection" }
+            );
+
+            routes.MapRoute(
                 name: "Profile Error",
                 url: "{nickname}/error",
                 defaults: new { controller = "Profile", action = "Error" }

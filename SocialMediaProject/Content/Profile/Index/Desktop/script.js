@@ -50,6 +50,40 @@
         $(".profile-settings").hide();
     });
 
+    function UpdateBio(type, url, name, surname, bio) {
+        $.ajax({
+            type: type,
+            url: url,
+            headers: {
+                Name: name,
+                Surname: surname,
+                Bio: bio,
+            },
+        });
+    }
+
+    $(".settings-footer").on("click", function () {
+        var nickname = window.location.pathname.substr(1);
+        var name = $(".settings-fullname div:first-child input").val();
+        var surname = $(".settings-fullname div:last-child input").val();
+        var bio = $(".settings-bio textarea").val();
+
+        $(".profile-name h2").text(name);
+        $(".profile-bio h3").text(bio);
+        $(".profile-settings-block").hide();
+        $(".profile-settings").hide();
+
+        var url_update = "https://localhost:44331/api/client/update/" + nickname;
+        var url_session_update = `https://localhost:44347/${nickname}/update/bio`;
+        var type = "PUT";
+        UpdateBio(type, url_update, name, surname, bio);
+        type = "POST";
+        UpdateBio(type, url_session_update, name, surname, bio);
+
+
+    });
+
+
     /* POP UP END */
 
     /* REQUEST TO BE FRIEND BUTTON START */

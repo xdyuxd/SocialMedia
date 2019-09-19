@@ -19,22 +19,25 @@
             <div class="settings-fullname">
                 <div>
                     <label>Name</label>
-                    <input type="text" />
+                    <input type="text" value="@ViewBag.Name" />
                 </div>
                 <div>
                     <label>Surname</label>
-                    <input type="text" />
+                    <input type="text" value="@ViewBag.Surname"/>
                 </div>
             </div>
             <div class="settings-bio">
                 <label>Bio</label>
-                ​<textarea></textarea>
+                ​<textarea maxlength="240">@ViewBag.Bio</textarea>
             </div>
             <div class="settings-birthdate">
                 <label>Birthdate</label>
                 <input type="date" />
             </div>
         </form>
+    </div>
+    <div class="settings-footer">
+        <h2>Save</h2>
     </div>
 </div>
 
