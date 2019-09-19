@@ -23,25 +23,26 @@ namespace SocialMediaProject
         {
             HttpContext context = HttpContext.Current;
 
-            //if (context.Session["Client"] == null) {
-            //    if (context.Request.Url.AbsolutePath != "/" &&
-            //        context.Request.Url.AbsolutePath != "/create" &&
-            //        context.Request.Url.AbsolutePath != "/login")
-            //    {
-            //        context.Response.Redirect("/");
-            //    }
-            //}
-            //else
-            //{
-            //    if (context.Request.Url.AbsolutePath == "/" ||
-            //        context.Request.Url.AbsolutePath == "/create" ||
-            //        context.Request.Url.AbsolutePath == "/login")
-            //    {
-            //        context.Response.Redirect($"/{context.Session["Client"]}");
-            //    }
+            if (context.Session["Client"] == null)
+            {
+                if (context.Request.Url.AbsolutePath != "/" &&
+                    context.Request.Url.AbsolutePath != "/create" &&
+                    context.Request.Url.AbsolutePath != "/login")
+                {
+                    context.Response.Redirect("/");
+                }
+            }
+            else
+            {
+                if (context.Request.Url.AbsolutePath == "/" ||
+                    context.Request.Url.AbsolutePath == "/create" ||
+                    context.Request.Url.AbsolutePath == "/login")
+                {
+                    context.Response.Redirect($"/{context.Session["Client"]}");
+                }
 
-            //    //TODO: Something more?
-            //}
+                //TODO: Something more?
+            }
 
         }
     }

@@ -1,5 +1,10 @@
 ﻿$(document).ready(function (e) {
 
+    //if (window.location.pathname.substr(1) == ) {
+    //    $("profile-request").css("display", "flex");
+    //    $("profile-request").show();
+    //}
+
     /* POP UP START */
 
     function Reader(e) {
@@ -50,7 +55,94 @@
         $(".profile-settings").hide();
     });
 
+    function UpdateBio(type, url, name, surname, bio) {
+        $.ajax({
+            type: type,
+            url: url,
+            headers: {
+                Name: name,
+                Surname: surname,
+                Bio: bio,
+            },
+        });
+    }
+
+    $(".settings-footer").on("click", function () {
+        var nickname = window.location.pathname.substr(1);
+        var name = $(".settings-fullname div:first-child input").val();
+        var surname = $(".settings-fullname div:last-child input").val();
+        var bio = $(".settings-bio textarea").val();
+
+        $(".profile-name h2").text(name);
+        $(".profile-bio h3").text(bio);
+        $(".profile-settings-block").hide();
+        $(".profile-settings").hide();
+
+        var url_update = "https://localhost:44331/api/client/update/" + nickname;
+        var url_session_update = `https://localhost:44347/${nickname}/update/bio`;
+        var type = "PUT";
+        UpdateBio(type, url_update, name, surname, bio);
+        type = "POST";
+        UpdateBio(type, url_session_update, name, surname, bio);
+    });
+
+
     /* POP UP END */
+
+    /* REQUEST TO BE FRIEND BUTTON START */
+
+    function SendRequestFriend(session, nickname) {
+        var response = $.ajax({
+            type: "POST",
+            url: "https://localhost:44331/api/friendship/create/" + session + "/" + nickname,
+            headers: { Timestamp: String(new Date().getTime()) },
+        });
+    }
+
+    function UndoRequestFriend(session, nickname) {
+        var response = $.ajax({
+            type: "DELETE",
+            url: "https://localhost:44331/api/friendship/delete/" + session + "/" + nickname,
+        });
+    }
+
+
+    $(".profile-request").on("click", function () {
+        if ($(".profile-request h4").text() == "Undo request") {
+            $(".profile-request i").removeClass("fa-user-times");
+            $(".profile-request i").addClass("fa-user-plus");
+            $(".profile-request h4").text("Add");
+            var response = $.ajax({
+                type: "POST",
+                url: "https://localhost:44347/session/getcurrentclient",
+                statusCode: {
+                    200: function (response) {
+                        nickname = window.location.pathname.substr(1);
+                        UndoRequestFriend(response, nickname);
+                    }
+                },
+            });
+        }
+        else {
+            $(".profile-request i").removeClass("fa-user-plus");
+            $(".profile-request i").addClass("fa-user-times");
+            $(".profile-request h4").text("Undo request");
+            var response = $.ajax({
+                type: "POST",
+                url: "https://localhost:44347/session/getcurrentclient",
+                statusCode: {
+                    200: function (response) {
+                        nickname = window.location.pathname.substr(1);
+                        SendRequestFriend(response, nickname);
+                    }
+                },
+             });
+
+        }
+    });
+
+    /* REQUEST TO BE FRIEND BUTTON END */
+
 
     $("#counter-button").on("click", function () {
         $(".counter").show();
@@ -102,7 +194,6 @@
             }
         }
         NoMoreThanFive();
-
     });
 });
 

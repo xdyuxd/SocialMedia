@@ -66,16 +66,17 @@ namespace SocialMedia.Controllers
                     HttpResponseMessage response = await client.GetAsync($"{url}/client/{uk}");
                     response.EnsureSuccessStatusCode();
                     string r = await response.Content.ReadAsStringAsync();
-                    var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(r);
+                    var dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(r);
                     if (dict.ContainsValue(uk))
                     {
                         Session["Client"] = dict["Nickname"];
-                        Session["ClientCollection"] = new Dictionary<string, string>() {
+                        Session["ClientCollection"] = new Dictionary<string, object>() {
                             { "Nickname", dict["Nickname"] },
                             { "Name", dict["Name"] },
                             { "Surname", dict["Surname"] },
                             { "Bio", dict["Bio"] },
-                            { "Profile_pic", dict["Profile_pic"]},
+                            { "Profile_pic", dict["Profile_pic"] },
+                            { "Birthdate", dict["Birthdate"] }
                             };
                     }
                     //TODO: Create POST to login and send encrypted key.

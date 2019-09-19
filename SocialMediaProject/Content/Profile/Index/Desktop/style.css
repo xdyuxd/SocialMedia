@@ -53,6 +53,7 @@
     font-weight: 600;
     text-align: center;
     margin: 0px;
+    margin-left: 40px;
     transform: translateX(-15px);
     user-select: none;
 }
@@ -68,7 +69,7 @@
 }
 
 .settings-body {
-    height: 550px;
+    height: 565px;
     overflow-y: auto;
 }
 
@@ -178,7 +179,6 @@
 }
 
 .settings-fullname {
-    margin: 75px;
     margin-bottom: 35px;
     margin-top: 75px;
     margin-left: 15px;
@@ -193,36 +193,85 @@
 
 .settings-fullname div:first-child {
     float: left;
-    margin-right: 35px;
+    margin-right: 65px;
 }
 
 .settings-fullname input[type=text] {
-    border: 0px solid  transparent;
-    border-bottom: 1px solid gray;
-}
+    background-color: #f3f3f3;
+    border: none;
+    border-bottom: 1px solid #bfbfbf;
+    border-radius: 5px 5px 0 0;
+    color: #595959;
+    padding: 5px 5px 0 5px;
 }
 
 .settings-bio {
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     margin-left: 15px;
+    margin-right: 15px;
     padding-left: 5px;
 }
 
 .settings-bio label {
+    color: grey;
     display: block;
 }
 
 .settings-bio textarea {
+    background-color: #f3f3f3;
+    border: none;
+    border-bottom: 1px solid #bfbfbf;
+    border-radius: 5px 5px 0 0;
+    color: #595959;
     height: 90px;
+    padding: 5px 5px 0 5px;
     max-width: 100%;
     resize: none;
     width: 100%;
 }
 
-/* POP UP END */
+.settings-birthdate {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-left: 5px;
+}
 
+.settings-birthdate label {
+    color: grey;
+    margin-bottom: 0px;
+    margin-right: 10px;
+}
 
-/* PROFILE BAR */
+.settings-birthdate input {
+    background-color: #f3f3f3;
+    border: none;
+    border-bottom: 1px solid #bfbfbf;
+    border-radius: 5px 5px 0 0;
+    color: #d492f1;
+}
+
+.settings-footer {
+    background-color: #d492f1;
+    left: 0px;
+    padding-left: 0px;
+    position: absolute;
+    width: 100%;
+    z-index: 7;
+}
+
+.settings-footer h2 {
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    padding-bottom: 15px;
+    padding-top: 8px;
+    margin: 0;
+    text-align: center;
+}
+
+    /* POP UP END */
+
+    /* PROFILE BAR */
 
 .cover-photo {
     //This class is with problems to be recognized so it was moved to profile shared layout.
@@ -282,9 +331,22 @@
 
 .profile-name h2 {
     color: white;
+    margin-right: 5px;
     max-height: 100px;
     max-width: 250px;
+    float: left;
     font-size: 30px;
+}
+
+.profile-name i {
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.profile-name i:hover {
+    opacity: 1;
 }
 
 .profile-bio {
@@ -306,13 +368,15 @@
 }
 
 .profile-friends {
+    position: absolute;
+    right: 150px;
     margin: 15px;
     float: left;
     width: 200px;
 }
 
 .profile-friends h3 {
-    font-size: 24px;
+    font-size: 18px;
     text-align: center;
 }
 
@@ -334,6 +398,32 @@
     -moz-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
     -webkit-box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
 }
+
+.profile-request {
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; //flex;
+    height: 40px;
+    right: 5%;
+    padding: 5px 8px 5px 8px;
+    position: absolute;
+    top: -45px;
+}
+
+.profile-request i, .profile-request h4 {
+    margin-top: 3px;
+    font-size: 16px;
+    user-select: none;
+}
+
+.profile-request i {
+    margin-right: 4px;
+}
+
+    /* PROFILE BAR END*/
+
 
 .profile-items {
     background-color: rgb(242, 242, 242);

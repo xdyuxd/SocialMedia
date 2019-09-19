@@ -8,7 +8,7 @@
         <form>
             <div class="settings-cover-photo">
                 <i class="fa fa-camera"></i>
-                <input type="file" />
+                <input type="file"/>
                 <img />
             </div>
             <div class="settings-profile-photo">
@@ -19,16 +19,16 @@
             <div class="settings-fullname">
                 <div>
                     <label>Name</label>
-                    <input type="text" />
+                    <input type="text" value="@ViewBag.Name" />
                 </div>
                 <div>
                     <label>Surname</label>
-                    <input type="text" />
+                    <input type="text" value="@ViewBag.Surname"/>
                 </div>
             </div>
             <div class="settings-bio">
                 <label>Bio</label>
-                ​<textarea></textarea>
+                ​<textarea maxlength="240">@ViewBag.Bio</textarea>
             </div>
             <div class="settings-birthdate">
                 <label>Birthdate</label>
@@ -36,11 +36,14 @@
             </div>
         </form>
     </div>
-</div> 
+    <div class="settings-footer">
+        <h2>Save</h2>
+    </div>
+</div>
 
 <div class="cover-photo">
     <div>
-        <img src="https://i.imgur.com/0T9GiaQ.jpg" />
+        <img src="https://i.pinimg.com/originals/24/87/f4/2487f4b2432e85b0dbfd6b9797185001.jpg" />
     </div>
 </div>
 
@@ -50,6 +53,7 @@
     </div>
     <div class="profile-name">
         <h2>@ViewBag.Name</h2>
+        <i class="fas fa-edit"></i>
     </div>
     <div class="profile-bio">
         <h3>@ViewBag.Bio</h3>
@@ -57,33 +61,30 @@
     <div class="profile-friends">
         <h3>Friends</h3>
         <div>
-        <div class="friend-thumb"></div>
-        <div class="friend-thumb"></div>
-        <div class="friend-thumb"></div>
-        <div class="friend-thumb"></div>
-        <div class="friend-thumb"></div>
-        <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
         </div>
     </div>
-    <i class="fa fa-edit"></i>
-
-</div> 
- 
+    <div class="profile-request">
+        <i class="fas fa-user-plus"></i>
+        <h4>Add</h4>
+    </div>
+</div>
 
 <div class="profile-items">
-    <div class="photos">
-        <h3>Photos</h3>
-        <div class="prefered-photos">
-            <div class="prefered-img-thumb"></div>
-            <div class="prefered-img-thumb"></div>
-            <div class="prefered-img-thumb"></div>
-            <div class="prefered-img-thumb"></div>
-        </div>
+    <div class="prefered-photos">
+        <div class="prefered-img-thumb"></div>
+        <div class="prefered-img-thumb"></div>
+        <div class="prefered-img-thumb"></div>
+        <div class="prefered-img-thumb"></div>
     </div>
     <div class="comment-section">
-        <h3>Comments</h3>
         <form class="comments-post">
-            <textarea class="comment-input" maxlength="60" rows="10"></textarea>
+            <textarea class="comment-input" maxlength="20" rows="3" cols="50" placeholder="Deixe seu comentário"></textarea>
             <div class="comment-button">Comentar</div>
         </form>
         <div class="comments-1">
@@ -91,24 +92,20 @@
                 <div>
                     <figure>
                         <img src="http://www.regrom.com/wp-content/uploads/2017/07/2006BF4261-400x400.jpg" />
-                        <figcaption>Jailson Mendes</figcaption>
+                        <figcaption>Teste</figcaption>
                     </figure>
-                    <div>
-                        <div class="main-comment">
-                            <button class="counter-button" id="counter-button" type="button">❤</button>
-                            <h5 class="counter">0</h5>
-                            <h5>Comentario do suco de laranja do Jailson</h5>
-                        </div>
-                        <div class="answer-comment">
-                            <form>
-                                <textarea maxlength="20" placeholder="Resposta do comentário"></textarea>
-                            </form>
-                            <h6>suco de laranja do Jailson</h6>
-                            <h6>Comentario do suco de laranja do Jailson</h6>
-                        </div>
+                    <button class="fas fa-heart-square" id="counter-button" type="button">❤</button>
+                    <h6 class="counter">0</h6>
+                    <h5>Comentario do suco de laranja do Jailson</h5>
+                    <div class="answer-comment">
+                        <form>
+                            <textarea maxlength="20"></textarea>
+                        </form>
+                        <h6>Comentario de teste</h6>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
