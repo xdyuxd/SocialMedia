@@ -153,6 +153,7 @@
     <Content Include="Content\regular.min.css" />
     <Content Include="Content\Shared\Home\style.css" />
     <Content Include="Content\Home\Index\Desktop\style.css" />
+    <Content Include="Content\Profile\Index\Desktop\error.css" />
     <Content Include="Content\Shared\Profile\style.css" />
     <Content Include="Content\solid.css" />
     <Content Include="Content\solid.min.css" />

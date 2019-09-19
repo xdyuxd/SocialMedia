@@ -52,6 +52,64 @@
 
     /* POP UP END */
 
+    /* REQUEST TO BE FRIEND BUTTON START */
+
+    function SendRequestFriend(session, nickname) {
+        var response = $.ajax({
+            type: "POST",
+            url: "https://localhost:44331/api/friendship/create/" + session + "/" + nickname,
+            headers: { Timestamp: String(new Date().getTime()) },
+        });
+    }
+
+    function UndoRequestFriend(session, nickname) {
+        var response = $.ajax({
+            type: "DELETE",
+            url: "https://localhost:44331/api/friendship/delete/" + session + "/" + nickname,
+        });
+    }
+
+
+    $(".profile-request").on("click", function () {
+        if ($(".profile-request h4").text() == "Undo request") {
+            $(".profile-request i").removeClass("fa-user-times");
+            $(".profile-request i").addClass("fa-user-plus");
+            $(".profile-request h4").text("Add");
+            var response = $.ajax({
+                type: "POST",
+                url: "https://localhost:44347/session/getcurrentclient",
+                statusCode: {
+                    200: function (response) {
+                        nickname = window.location.pathname.substr(1);
+                        UndoRequestFriend(response, nickname);
+                    }
+                },
+            });
+        }
+        else {
+            $(".profile-request i").removeClass("fa-user-plus");
+            $(".profile-request i").addClass("fa-user-times");
+            $(".profile-request h4").text("Undo request");
+            var response = $.ajax({
+                type: "POST",
+                url: "https://localhost:44347/session/getcurrentclient",
+                statusCode: {
+                    200: function (response) {
+                        nickname = window.location.pathname.substr(1);
+                        SendRequestFriend(response, nickname);
+                    }
+                },
+             });
+
+        }
+    });
+
+    /* REQUEST TO BE FRIEND BUTTON END */
+
+
+
+
+
     $("#counter-button").on("click", function () {
         $(".counter").show();
     });
@@ -92,7 +150,6 @@
             '</div>';         
 
         $('.comments-1').prepend(comment);
-        console.log("Makonha");
     });
 });
 

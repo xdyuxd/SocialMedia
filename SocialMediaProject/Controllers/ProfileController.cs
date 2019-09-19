@@ -16,12 +16,14 @@ namespace SocialMedia.Controllers
         [HttpGet, OutputCache(Duration = 60 * 15, VaryByParam = "none")]
         public async Task<ActionResult> Index(string nickname)
         {
-            ViewBag.Name = "Name - Profile";
+            ViewBag.Title = "Name - Profile";
+            ViewBag.Name = "Name";
             ViewBag.Bio = "Escreva aqui sua biografia, um pouco de fatos particulares de sua vida.";
             if ((string)Session["Client"] == nickname)
             {
-                Dictionary<string, string> client = (Dictionary<string, string>)Session["ClientCollection"];
-                ViewBag.Name = $"client['Name'] - Profile";
+                Dictionary<string, object> client = (Dictionary<string, object>)Session["ClientCollection"];
+                ViewBag.Title = $"{client["Name"]} - Profile";
+                ViewBag.Name = client["Name"];
             }
             else
             {
@@ -36,11 +38,18 @@ namespace SocialMedia.Controllers
                         {
                             return RedirectToAction("Error");
                         }
-                        var dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(r);
+                        else
+                        {
+                            var client_dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(r);
+                            ViewBag.Title = $"{client_dict["Name"]} - Profile";
+                            ViewBag.Name = client_dict["Name"];
+                            ViewBag.Bio = client_dict["Bio"];
+                        }
                     }
                 }
                 catch
                 {
+
                     return RedirectToAction("Error");
                 }
             }
@@ -58,6 +67,15 @@ namespace SocialMedia.Controllers
         {
             Session["Client"] = null;
             return Json(new { url = Url.Action("Index", "Home") });
+        }
+
+        [HttpPost]
+        public string GetCurrentClient()
+        {
+            if (Session["Client"] != null)
+                return (string)Session["Client"];
+            else
+                return "Not Found.";
         }
 
         [HttpGet]

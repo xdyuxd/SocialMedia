@@ -37,6 +37,8 @@ namespace SocialMediaProject
                 defaults: new { controller = "Home", action = "Login" }
             );
 
+            /* PROFILE START */
+
             routes.MapRoute(
                 name: "Logout",
                 url: "logout",
@@ -50,16 +52,24 @@ namespace SocialMediaProject
             );
 
             routes.MapRoute(
+                name: "Get Current Client",
+                url: "session/getcurrentclient",
+                defaults: new { controller = "Profile", action = "GetCurrentClient" }
+           );
+
+            routes.MapRoute(
                 name: "Profile Error",
                 url: "{nickname}/error",
                 defaults: new { controller = "Profile", action = "Error" }
             );
 
             routes.MapRoute(
-                name: "Profile-List-Friend",
+                name: "Profile List Friend",
                 url: "{nickname}/friend",
                 defaults: new { controller = "Profile", action = "FriendList", nickname = UrlParameter.Optional }
             );
+
+            /* PROFILE END */
 
         }
     }
