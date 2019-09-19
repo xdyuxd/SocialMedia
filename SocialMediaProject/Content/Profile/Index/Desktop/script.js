@@ -73,18 +73,19 @@
     });
 
     $(".comment-button").on("click", function () {
+        var comment_input = $('.comment-input').val();
         var comment = 
             '<div class="comments"><div>' +
             '<figure>' +
             ' <img src="" />' +
             '<figcaption></figcaption>' +
             '</figure>' +
-            ' <h5></h5>' +
+            ' <h5> ' +comment_input+ '</h5>' +
             '<div class="answer-comment">' +
             '<form>' +
             '<button class="fas fa-heart-square" id="counter-button" type="button">❤</button>' +
             '<h6 class="counter">0</h6>' +
-            '<textarea maxlength="20"></textarea>' +
+            '<textarea m axlength="20"></textarea>' +
             '</form>' +
             '<h6></h6>' +
             '</div>' +
@@ -92,7 +93,16 @@
             '</div>';         
 
         $('.comments-1').prepend(comment);
-        console.log("Makonha");
+        $(".comment-input").val(" ");
+
+        function NoMoreThanFive() {
+            var countdiv = $('.comments').length;
+            if (countdiv >= 5) {
+                $(".comments:last-child").remove();
+            }
+        }
+        NoMoreThanFive();
+
     });
 });
 

@@ -255,6 +255,7 @@
     max-width: 1500px;
     position: relative;
     width: 100%;
+    box-shadow: 0px 15px 20px -20px rgba(0, 0, 0, 0.10);
 }
 
 .profile-photo {
@@ -335,20 +336,33 @@
 }
 
 .profile-items {
-    background-color: white;
+    background-color: rgb(242, 242, 242);
     display: flex;
     justify-content: space-around;
     height: 400px;
     margin: auto auto auto auto;
     max-width: 1500px;
+    padding-top: 30px;
 }
 
 .comment-section {
     display: flex;
     flex-direction: column;
     height: auto;
-    padding-top: 10px;
 }
+
+    .comment-section h3 {
+        color: #464646;
+        text-align: justify;
+        font-size: 24px;
+        word-wrap: break-word;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        padding-bottom: 15px;
+    }
 
 .row {
     width: 600px;
@@ -385,12 +399,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.answer-comment div h6 {
-    height: 15px;
-    width: 15px;
-    font-size: 10px;
+    margin-left: 15px;
 }
 
 .answer-comment {
@@ -404,24 +413,30 @@
     width: 100%;
     height: 25px;
     resize: none;
-    border: solid 1px rgba(0, 0, 0, 0.30);
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.20);
+    border: solid 1px rgba(0, 0, 0, 0.10);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.10);
     padding-right: 5px;
 }
 
 .prefered-photos {
     display: grid;
-    align-items: center;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
-    padding: 40px 30px 30px 30px;
-    justify-items: center;
     grid-gap: 20px;
     width: 500px;
-    background: rgb(254,243,255);
-    background: radial-gradient(circle, rgba(254,243,255,0.80) 27%, rgba(253,233,255,0.80) 68%);
-    border-radius: 5px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.10);
+}
+
+.photos h3 {
+    color: #464646;
+    text-align: justify;
+    font-size: 24px;
+    word-wrap: break-word;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    padding-bottom: 15px;
 }
 
 .prefered-img-thumb {
@@ -429,8 +444,7 @@
     width: 100%;
     background-image: url(https://i.imgur.com/0T9GiaQ.jpg);
     background-size: cover;
-    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
-    border-radius: 3%;
+    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.40);
 }
 
 .comments {
@@ -458,13 +472,19 @@
 }
 
 .comments h5 {
-    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 18px;
 }
 
 .comments img {
     height: 30px;
     width: 30px;
     box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
+}
+
+.comments h6 {
+    font-size: 15px;
+    padding-right: 5px;
 }
 
 .comments figure {
@@ -476,6 +496,7 @@
 .comments figcaption {
     margin: 8px 8px 8px 8px;
     text-align: center;
+    font-size: 18px;
 }
 
 .counter {
@@ -487,6 +508,6 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
-    padding-right: 10px;
+    padding-left: 10px;
 }
 
