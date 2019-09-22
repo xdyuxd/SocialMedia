@@ -1,9 +1,8 @@
 ﻿$(document).ready(function (e) {
 
-    //if (window.location.pathname.substr(1) == ) {
-    //    $("profile-request").css("display", "flex");
-    //    $("profile-request").show();
-    //}
+    var url_api = "https://localhost:44331/api/";
+    var path_client_update = "client/update/";
+    var extensions = new RegExp("\.jpg|\.jpeg|\.png");
 
     /* POP UP START */
 
@@ -21,16 +20,32 @@
             return img
         }
     }
+
+    function CreateImg(photo) {
+        var file = photo
+        var img = document.createElement("img");
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            img.src = reader.result;
+        }
+        reader.readAsDataURL(file);
+        return img
+    }
+
     $(".settings-cover-photo input").change(function (e) {
-        let img = Reader(e);
-        document.querySelector(".settings-cover-photo").appendChild(img);
-        document.querySelector(".settings-cover-photo img").remove();
+        if (extensions.exec(e.target.files[0].name)) {
+            let img = Reader(e);
+            document.querySelector(".settings-cover-photo").appendChild(img);
+            document.querySelector(".settings-cover-photo img").remove();
+        }
     });
 
     $(".settings-profile-photo input").change(function (e) {
-        let img = Reader(e);
-        document.querySelector(".settings-profile-photo").appendChild(img);
-        document.querySelector(".settings-profile-photo img").remove();
+        if (extensions.exec(e.target.files[0].name)) {
+            let img = Reader(e);
+            document.querySelector(".settings-profile-photo").appendChild(img);
+            document.querySelector(".settings-profile-photo img").remove();
+        }
     });
 
     $(".fa-edit").on("click", function () {
@@ -55,10 +70,13 @@
         $(".profile-settings").hide();
     });
 
-    function UpdateBio(type, url, name, surname, bio) {
+    function UpdateBio(type, url, data, name, surname, bio) {
         $.ajax({
             type: type,
             url: url,
+            data: data,
+            contentType: false, 
+            processData: false,
             headers: {
                 Name: name,
                 Surname: surname,
@@ -69,6 +87,31 @@
 
     $(".settings-footer").on("click", function () {
         var nickname = window.location.pathname.substr(1);
+        var formData = new FormData();
+        var profile_file = $('.settings-profile-photo input');
+        var cover_file = $('.settings-cover-photo input');
+
+        if (profile_file[0].files.length) {
+            $.each(profile_file, function (key, value) {
+                var file = $(value)[0].files[0];
+                formData.append("profile.png", file);
+            });
+
+            var img = CreateImg(profile_file[0].files[0])
+            document.querySelector(".profile-photo").appendChild(img);
+            document.querySelector(".profile-photo img").remove();
+        }
+        if (cover_file[0].files.length) {
+            $.each(cover_file, function (key, value) {
+                var file = $(value)[0].files[0];
+                formData.append("cover.png", file);
+            });
+
+            var img = CreateImg(cover_file[0].files[0])
+            document.querySelector(".cover-photo").appendChild(img);
+            document.querySelector(".cover-photo img").remove();
+        }
+
         var name = $(".settings-fullname div:first-child input").val();
         var surname = $(".settings-fullname div:last-child input").val();
         var bio = $(".settings-bio textarea").val();
@@ -79,13 +122,9 @@
         $(".profile-settings").hide();
 
         var url_update = "https://localhost:44331/api/client/update/" + nickname;
-        var url_session_update = `https://localhost:44347/${nickname}/update/bio`;
         var type = "PUT";
-        UpdateBio(type, url_update, name, surname, bio);
-        type = "POST";
-        UpdateBio(type, url_session_update, name, surname, bio);
+        UpdateBio(type, url_update, formData, name, surname, bio);
     });
-
 
     /* POP UP END */
 
@@ -144,6 +183,27 @@
     /* REQUEST TO BE FRIEND BUTTON END */
 
 
+
+    $(".uploud-button input").change(function (e) {
+        var formData = new FormData();
+        var file = e.target.files[0];
+        formData.append(file.name, file);
+
+        $.ajax({
+            url: url_api + "/client/" + localStorage.getItem('client') + "/post",
+            type: "POST",
+            contentType: false, // Not to set any content header  
+            processData: false, // Not to process data  
+            data: formData,
+            error: function (e) {
+                alert("FUDEU BICHO")
+            }
+        });
+    });
+
+
+
+
     $("#counter-button").on("click", function () {
         $(".counter").show();
     });
@@ -164,36 +224,31 @@
         })
     });
 
-    $(".comment-button").on("click", function () {
-        var comment_input = $('.comment-input').val();
-        var comment = 
-            '<div class="comments"><div>' +
-            '<figure>' +
-            ' <img src="" />' +
-            '<figcaption></figcaption>' +
-            '</figure>' +
-            ' <h5> ' +comment_input+ '</h5>' +
-            '<div class="answer-comment">' +
-            '<form>' +
-            '<button class="fas fa-heart-square" id="counter-button" type="button">❤</button>' +
-            '<h6 class="counter">0</h6>' +
-            '<textarea m axlength="20"></textarea>' +
-            '</form>' +
-            '<h6></h6>' +
-            '</div>' +
-            '</div>' +
-            '</div>';         
+    $(".form-commentary textarea").change(function (e) {
+        if (e.target.value != "")
+            $(".section-commentary span").remove();
+    });
 
-        $('.comments-1').prepend(comment);
-        $(".comment-input").val(" ");
+    $(".form-commentary div").on("click", function () {
+        var comment = $('.form-commentary textarea').val();
+        if (comment) {
+            var name = "Teste";
+            var src = "http://www.regrom.com/wp-content/uploads/2017/07/2006BF4261-400x400.jpg";
+            var comment = `<div class="comment"><figure><img src="${src}" /><figcaption>${name}</figcaption></figure><h5>${comment}</h5><div class="fas fa-heart-square" id="counter-button" type="button">❤</div><h6 class="counter">0</h6></div>`;
 
-        function NoMoreThanFive() {
-            var countdiv = $('.comments').length;
-            if (countdiv >= 5) {
-                $(".comments:last-child").remove();
+            $('.commentary').prepend(comment);
+            $(".form-commentary textarea").val("");
+
+            var comment_counter = $('.comment').length;
+            if (comment_counter >= 5) {
+                $(".comment:last-child").remove();
             }
         }
-        NoMoreThanFive();
+        else {
+            if (!$(".section-commentary span")[0]){
+                $('.form-commentary').prepend('<span style="color: red; display: block; text-align: center">Please write some text before send the comment</span>');
+            }
+        }
     });
 });
 

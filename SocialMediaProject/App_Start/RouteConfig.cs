@@ -41,7 +41,7 @@ namespace SocialMediaProject
 
             routes.MapRoute(
                 name: "Search Profile",
-                url: "search/{nickname}",
+                url: "search",
                 defaults: new { controller = "Profile", action = "Search" }
             );
 

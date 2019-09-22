@@ -20,14 +20,34 @@ namespace SocialMedia.Controllers
             ViewBag.Title = "Name - Profile";
             ViewBag.Name = "Name";
             ViewBag.Bio = "Escreva aqui sua biografia, um pouco de fatos particulares de sua vida.";
+
             if ((string)Session["Client"] == nickname)
             {
-                Dictionary<string, object> client = (Dictionary<string, object>)Session["ClientCollection"];
-                ViewBag.Title = $"{client["Name"]} - Profile";
-                ViewBag.Name = client["Name"];
-                ViewBag.Surname = client["Surname"];
-                ViewBag.Bio = client["Bio"];
-                ViewBag.Birthdate = client["Birthdate"];
+                using (HttpClient c = new HttpClient())
+                {
+                    HttpResponseMessage response = await c.GetAsync($"{url}/client/{Session["Client"]}");
+                    response.EnsureSuccessStatusCode();
+                    string r = await response.Content.ReadAsStringAsync();
+                    var dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(r);
+
+                    ViewBag.Title = $"{dict["Name"]} - Profile";
+                    ViewBag.Name = dict["Name"];
+                    ViewBag.Surname = dict["Surname"];
+                    ViewBag.Bio = dict["Bio"];
+                    ViewBag.Birthdate = dict["Birthdate"];
+                    ViewBag.Cover_pic = dict["Cover_pic"];
+                    ViewBag.Profile_pic = dict["Profile_pic"];
+                }
+
+
+                using (HttpClient c = new HttpClient())
+                {
+                    HttpResponseMessage response = await c.GetAsync($"{url}/client/{(string)Session["Client"]}/gallery");
+                    response.EnsureSuccessStatusCode();
+                    string r = await response.Content.ReadAsStringAsync();
+                    var dict = JsonConvert.DeserializeObject<List<object>>(r);
+                    ViewBag.Gallery = dict;
+                }
             }
             else
             {
@@ -53,48 +73,36 @@ namespace SocialMedia.Controllers
                 }
                 catch
                 {
-
                     return RedirectToAction("Error");
                 }
             }
-            return View();
-        }
 
-        [HttpGet]
-        public ActionResult FriendList(string nickname)
-        {
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync($"{url}/client/{(string)Session["Client"]}/notification");
+                response.EnsureSuccessStatusCode();
+                string r = await response.Content.ReadAsStringAsync();
+                var dict = JsonConvert.DeserializeObject<List<object>>(r);
+                ViewBag.Notification = dict;
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync($"{url}/client/{(string)Session["Client"]}/friendship");
+                response.EnsureSuccessStatusCode();
+                string r = await response.Content.ReadAsStringAsync();
+                var dict = JsonConvert.DeserializeObject<List<object>>(r);
+                ViewBag.Friendship = dict;
+            }
+
             return View();
         }
 
         [HttpPost]
-        public string UpdateProfileCollection()
+        public ActionResult Search()
         {
-            try
-            {
-                Dictionary<string, object> client = (Dictionary<string, object>)Session["ClientCollection"];
-                Session["ClientCollection"] = new Dictionary<string, object>() {
-                            { "Nickname", client["Nickname"] },
-                            { "Name", Request.Headers.GetValues("Name")[0] ?? client["Client"] },
-                            { "Surname", Request.Headers.GetValues("Surname")[0] },
-                            { "Bio", Request.Headers.GetValues("Bio")[0]},
-                            { "Profile_pic", Request.Headers.GetValues("Profile_pic") ?? client["Profile_pic"] },
-                            { "Birthdate", Request.Headers.GetValues("Birthdate") ?? client["Birthdate"] }
-                            };
-
-                return "The Bio was updated!";
-            }
-            catch
-            {
-                return "Failed";
-            }
+            return RedirectToAction("Index", new { nickname = Request.Form["nickname"] });
         }
-
-        [HttpPost]
-        public ActionResult Search(string nickname)
-        {
-            return RedirectToAction("Index", nickname);
-        }
-
 
         [HttpPost]
         public string GetCurrentClient()
@@ -113,9 +121,28 @@ namespace SocialMedia.Controllers
         }
 
         [HttpGet]
-        public ActionResult Error()
+        public async Task<ActionResult> Error()
         {
             ViewBag.Name = "Not found - SocialMedia";
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync($"{url}/client/{(string)Session["Client"]}/notification");
+                response.EnsureSuccessStatusCode();
+                string r = await response.Content.ReadAsStringAsync();
+                var dict = JsonConvert.DeserializeObject<List<object>>(r);
+                ViewBag.Notification = dict;
+            }
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync($"{url}/client/{(string)Session["Client"]}/friendship");
+                response.EnsureSuccessStatusCode();
+                string r = await response.Content.ReadAsStringAsync();
+                var dict = JsonConvert.DeserializeObject<List<object>>(r);
+                ViewBag.Friendship = dict;
+            }
+
             return View();
         }
     }

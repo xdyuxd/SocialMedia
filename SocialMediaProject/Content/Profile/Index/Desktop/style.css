@@ -273,11 +273,11 @@
 
     /* PROFILE BAR */
 
-.cover-photo {
+.cover {
     //This class is with problems to be recognized so it was moved to profile shared layout.
 }
 
-.cover-photo div {
+.cover div {
     background: grey;
     height: 350px;
     left: 0;
@@ -291,9 +291,9 @@
     z-index: -1;
 }
 
-.cover-photo div img {
-    //position: absolute;
+.cover img {
     top: 0;
+    max-width: 1500px;
 }
 
 .profile {
@@ -404,7 +404,7 @@
     border: 2px solid #e0e0e0;
     border-radius: 5px;
     cursor: pointer;
-    display: none; //flex;
+    display: flex;
     height: 40px;
     right: 5%;
     padding: 5px 8px 5px 8px;
@@ -424,180 +424,162 @@
 
     /* PROFILE BAR END*/
 
+    /* PROFILE BODY START */
 
-.profile-items {
+.profile-body {
     background-color: rgb(242, 242, 242);
     display: flex;
+    height: auto;
     justify-content: space-around;
-    height: 400px;
     margin: auto auto auto auto;
     max-width: 1500px;
-    padding-top: 30px;
+    padding-top: 15px;
 }
 
-.comment-section {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-}
-
-    .comment-section h3 {
-        color: #464646;
-        text-align: justify;
-        font-size: 24px;
-        word-wrap: break-word;
-        display: flex;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
-        justify-items: center;
-        padding-bottom: 15px;
-    }
-
-.row {
-    width: 600px;
-    height: 600px;
-}
-
-.comments-post {
-    width: auto;
-    display: flex;
+.section-featured-photos {
     background-color: white;
+    border-radius: 5px;
+    height: 100%;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    padding: 15px;
+}
+
+.section-featured-photos h3 {
+    font-size: 18px;
+    text-align: center;
+}
+
+.section-featured-photos .featured-photos {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    grid-gap: 5px;
+}
+
+.featured-photos div {
+    height: 200px;
+    width: 200px;
+}
+
+.featured-photos div img {
+    background-color: grey;
+}
+
+
+/* COMMENTARY SECTION START */
+
+.section-commentary {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    height: auto;
+    padding: 15px;
+    flex-direction: column;
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
+
+.section-commentary h3 {
+    font-size: 18px;
+    text-align: center;
+}
+
+.section-commentary .form-commentary {
     margin-bottom: 15px;
 }
 
-.comment-input {
-    max-width: 100%;
-    width: 450px;
+.section-commentary form {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+.section-commentary form textarea {
+    background-color: #f2f2f2;
+    border: none;
     height: 65px;
+    padding: 2px 2px 2px 5px;
+    max-width: 100%;
     outline: none;
     resize: none;
-    border: solid 1px rgba(0, 0, 0, 0.30);
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.35);
-    padding: 2px 2px 2px 5px;
+    width: 450px;
 }
 
-.comment-button {
-    width: 120px;
-    height: 65px;
-    background-color: rgb(233, 233, 233);
-    text-decoration-color: white;
-    border: solid 1px rgba(0, 0, 0, 0.30);
-    border-left: none;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.35);
-    position: relative;
-    display: flex;
+.section-commentary form div {
     align-items: center;
-    justify-content: center;
-    margin-left: 15px;
-}
-
-.answer-comment {
-    box-shadow: inset 2px 2px 5px 2px rgba(0,0,0,0.05);
-    margin: 15px 15px 15px 15px;
-    padding: 5px 5px 5px 5px;
-}
-
-.answer-comment textarea {
-    max-width: 100%;
-    width: 100%;
-    height: 25px;
-    resize: none;
-    border: solid 1px rgba(0, 0, 0, 0.10);
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.10);
-    padding-right: 5px;
-}
-
-.prefered-photos {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    grid-gap: 20px;
-    width: 500px;
-}
-
-.photos h3 {
-    color: #464646;
-    text-align: justify;
-    font-size: 24px;
-    word-wrap: break-word;
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
-    padding-bottom: 15px;
-}
-
-.prefered-img-thumb {
-    height: 150px;
-    width: 100%;
-    background-image: url(https://i.imgur.com/0T9GiaQ.jpg);
-    background-size: cover;
-    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.40);
-}
-
-.comments {
-    width: auto;
-    box-shadow: inset 2px 2px 5px 2px rgba(0,0,0,0.10);
-}
-
-.answer-comment form {
-    margin-bottom: 6px;
-    width: 100%;
-
-}
-
-.comments button {
-    background-color: Transparent;
-    background-repeat: no-repeat;
+    background-color: #d492f1;
     border: none;
+    border-left: none;
+    color: white;
     cursor: pointer;
-    overflow: hidden;
-}
-
-.comments div {
-    width: auto;
-    height: 25%;
-}
-
-.comments h5 {
-    padding-left: 10px;
-    font-size: 18px;
-}
-
-.comments img {
-    height: 30px;
-    width: 30px;
-    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.62);
-}
-
-.comments h6 {
-    font-size: 15px;
-    padding-right: 5px;
-}
-
-.comments figure {
     display: flex;
-    align-items: center;
-    padding: 10px 0px 0px 10px;
+    width: 100px;
+    height: 65px;
+    text-decoration-color: white;
+    position: relative;
+    justify-content: center;
+    user-select: none;
 }
 
-.comments figcaption {
-    margin: 8px 8px 8px 8px;
+.commentary {
+    max-width: 550px;
+}
+.comment {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #dedede;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    width: auto;
+}
+
+.comment figure {
+    align-items: center;
+    display: flex;
+    padding: 10px 0px 0px 10px;
+    margin-bottom: 0px;
+}
+
+.comment img {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.comment figcaption {
+    margin: 3px 8px 8px 8px;
     text-align: center;
     font-size: 18px;
 }
 
-.counter {
-    display: none;
+.comment h5 {
+    padding-left: 10px;
+    padding-right: 15px;
+    font-size: 18px;
+    margin-left: 50px;
+    word-wrap: break-word;
 }
 
-.main-comment {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    padding-left: 10px;
+.comment div {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border-right: 1px solid #8e8e8e;
+    cursor: pointer;
+    float: left;
+    padding-right: 5px;
+    margin-left: 15px;
+    margin-right: 5px;
+    overflow: hidden;
+    user-select: none;
 }
+
+.comment h6 {
+    font-size: 15px;
+    padding-right: 5px;
+}
+
+    /* COMMENTARY SECTION END */
+    /* PROFILE BODY END */
+
+
 

@@ -25,7 +25,7 @@ namespace SocialMedia.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult Create(ClientViewForm model)
+        public object Create(ClientViewForm model)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -40,8 +40,18 @@ namespace SocialMedia.Controllers
                     message.Headers.Add("password", model.Password);
                     message.Headers.Add("birthdate", (UnixTimestamp)model.Birthdate);
                     HttpResponseMessage response = client.SendAsync(message).GetAwaiter().GetResult();
-                    if(response.IsSuccessStatusCode)
+                    if (response.IsSuccessStatusCode) { 
                         Session["Client"] = model.Nickname;
+                        Session["ClientCollection"] = new Dictionary<string, object>() {
+                                { "Nickname", model.Nickname },
+                                { "Name",  model.Name },
+                                { "Surname", model.Surname },
+                                { "Bio", null },
+                                { "Profile_pic", null },
+                                { "Cover_pic", null },
+                                { "Birthdate", (UnixTimestamp)model.Birthdate }
+                        };
+                    }
                     else
                         return RedirectToAction("Index");
                 }
@@ -50,9 +60,10 @@ namespace SocialMedia.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Profile", new { nickname = Session["Client"] });
         }
 
+       
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(string uk,string password)
         {
@@ -76,6 +87,7 @@ namespace SocialMedia.Controllers
                             { "Surname", dict["Surname"] },
                             { "Bio", dict["Bio"] },
                             { "Profile_pic", dict["Profile_pic"] },
+                            { "Cover_pic", dict["Cover_pic"] },
                             { "Birthdate", dict["Birthdate"] }
                             };
                     }
@@ -87,7 +99,6 @@ namespace SocialMedia.Controllers
                 TempData["Error"] = "Credentials are incorrect! Check it again.";
                 RedirectToAction("Index");
             }
-            Debug.WriteLine(Session["Client"]);
             return RedirectToAction("Index", "Profile", new { nickname = Session["Client"] });
         }
 
