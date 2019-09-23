@@ -11,6 +11,10 @@ body {
     right: 0;
 }
 
+.loader {
+    background: url('../../../static/gif/loader.gif') no-repeat center center;
+}
+
 .navbar {
     display: flex;
     justify-content: unset !important;

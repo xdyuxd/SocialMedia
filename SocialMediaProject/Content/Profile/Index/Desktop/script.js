@@ -3,6 +3,8 @@
     var url_api = "https://localhost:44331/api/";
     var path_client_update = "client/update/";
     var extensions = new RegExp("\.jpg|\.jpeg|\.png");
+    var gallery_pagination = 0;
+    var gallery_end = false;
 
     /* POP UP START */
 
@@ -75,7 +77,7 @@
             type: type,
             url: url,
             data: data,
-            contentType: false, 
+            contentType: false,
             processData: false,
             headers: {
                 Name: name,
@@ -175,7 +177,7 @@
                         SendRequestFriend(response, nickname);
                     }
                 },
-             });
+            });
 
         }
     });
@@ -196,7 +198,7 @@
             processData: false, // Not to process data  
             data: formData,
             error: function (e) {
-                alert("FUDEU BICHO")
+                alert("Uploud error");
             }
         });
     });
@@ -245,10 +247,63 @@
             }
         }
         else {
-            if (!$(".section-commentary span")[0]){
+            if (!$(".section-commentary span")[0]) {
                 $('.form-commentary').prepend('<span style="color: red; display: block; text-align: center">Please write some text before send the comment</span>');
             }
         }
     });
+
+
+    /* RENDER FEED START */
+    var paused = false;
+
+    function RenderPost(response) {
+        $(".gallery-waypoint").remove();
+        $(".gallery-loader").remove();
+        if (response.length == 0) {
+            $(".gallery-body").remove();
+            $(".gallery").append('<h4>No photos yet :c</h4>')
+        }
+        else {
+            response.forEach(function (photo) {
+                $(".gallery-body").append(`<div class="post"><img src="data:image/png;base64,${photo.Img}"/></div>`)
+            })
+        }
+
+        if (response.length == 9) {
+            $(".gallery-body").append('<div class="gallery-waypoint"></div>');
+            gallery_pagination++;
+            console.log(gallery_pagination);
+        }
+        else {
+            gallery_end = true;
+        }
+        paused = false;
+    }
+
+    $(window).scroll(function () {
+        if (gallery_end == false && paused == false) {
+            paused = true;
+            if (Math.trunc($(window).scrollTop()) > ($(document).height() - $(window).height() - 200)) {
+                $(".gallery-waypoint").append('<div class="loader gallery-loader"></div>')
+                $.ajax({
+                    type: "GET",
+                    url: url_api + "/client/" + localStorage.getItem('client') + "/gallery/" + gallery_pagination,
+                    crossDomain: true,
+                    headers: { "Access-Control-Allow-Origin": "*" },
+                    success: function (response) {
+                        RenderPost(response);
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                });
+            }
+        }
+    });
+
+
+    /* RENDER FEED END */
+
 });
 
