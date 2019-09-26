@@ -98,14 +98,20 @@
     <div class="section-featured-photos">
         <h3>Featured Photos</h3>
         <div class="featured-photos">
-            <div>
-                <img />
-            </div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            @if (ViewBag.Featured_photos.Count != 0)
+            {
+                foreach (var photo in ViewBag.Featured_photos)
+                {
+                    <div>
+                        <img src="data:image/png;base64,@photo["Img"]" />
+                    </div>
+                }
+            }
+            else
+            {
+                <h1 style="color: #bfbfbf; font-size: 18px;">No featured photos :/</h1>
+            }
+
         </div>
     </div>
     <div class="section-commentary">
@@ -117,15 +123,6 @@
             </form>
         </div>
         <div class="commentary">
-            <div class="comment">
-                <figure>
-                    <img src="http://www.regrom.com/wp-content/uploads/2017/07/2006BF4261-400x400.jpg" />
-                    <figcaption>Teste</figcaption>
-                </figure>
-                <h5>Comentario do suco de laranja do Jailson</h5>
-                <div class="fas fa-heart-square" id="counter-button" type="button">❤</div>
-                <h6 class="counter">0</h6>
-            </div>
         </div>
     </div>
 </div>

@@ -442,6 +442,8 @@
     height: 100%;
     margin-bottom: 0px;
     margin-right: 0px;
+    min-height: 230px;
+    min-width: 610px;
     padding: 15px;
 }
 
@@ -464,6 +466,8 @@
 
 .featured-photos div img {
     background-color: grey;
+    height: 200px;
+    width: 200px;
 }
 
 
@@ -595,6 +599,7 @@
 .gallery-header {
     display: flex;
     height: 25px;
+    margin-bottom: 15px;
     justify-content: center;
     text-align: center;
 }

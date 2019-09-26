@@ -78,7 +78,7 @@ namespace SocialMedia.Controllers
                     response.EnsureSuccessStatusCode();
                     string r = await response.Content.ReadAsStringAsync();
                     var dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(r);
-                    if (dict.ContainsValue(uk))
+                    if (dict.ContainsValue(uk) && dict.ContainsValue(password))
                     {
                         Session["Client"] = dict["Nickname"];
                         Session["ClientCollection"] = new Dictionary<string, object>() {
@@ -90,6 +90,11 @@ namespace SocialMedia.Controllers
                             { "Cover_pic", dict["Cover_pic"] },
                             { "Birthdate", dict["Birthdate"] }
                             };
+                    }
+                    else
+                    {
+                        TempData["Error"] = "Credentials are incorrect! Check it again.";
+                        RedirectToAction("Index");
                     }
                     //TODO: Create POST to login and send encrypted key.
                 }

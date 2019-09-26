@@ -7,7 +7,7 @@
         if (id) {
             $.ajax({
                 type: "POST",
-                url: url_api + `/friendship/accept/${id}`,
+                url: url_api + `friendship/accept/${id}`,
             });
         }
     });

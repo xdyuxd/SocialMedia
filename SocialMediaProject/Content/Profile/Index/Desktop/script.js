@@ -1,10 +1,25 @@
 ﻿$(document).ready(function (e) {
 
-    var url_api = "https://localhost:44331/api/";
+    var client = localStorage.getItem('client');
+    var name = localStorage.getItem('name');
+    var profile_pic = localStorage.getItem('profile_pic');
+
+    var url_api = "https://localhost:44331/api/"; //"https://socialmedia-api.azurewebsites.net/api" //"https://localhost:44331/api/";
     var path_client_update = "client/update/";
     var extensions = new RegExp("\.jpg|\.jpeg|\.png");
-    var gallery_pagination = 0;
+    var gallery_pagination = 1;
     var gallery_end = false;
+
+
+    $("#dropdown-button-logout").on("click", function () {
+        $.ajax({
+            type: "post",
+            url: "https://localhost:44347/logout"
+        }).done(function (data) {
+            window.location.replace(data.url);
+        })
+    });
+
 
     /* POP UP START */
 
@@ -48,14 +63,6 @@
             document.querySelector(".settings-profile-photo").appendChild(img);
             document.querySelector(".settings-profile-photo img").remove();
         }
-    });
-
-    $(".fa-edit").on("click", function () {
-        document.querySelector("body").classList.add("locked");
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-        $(".profile-settings-block").show();
-        $(".profile-settings").show();
     });
 
     $(".fa-edit").on("click", function () {
@@ -122,8 +129,9 @@
         $(".profile-bio h3").text(bio);
         $(".profile-settings-block").hide();
         $(".profile-settings").hide();
+        $("body").removeClass("locked");
 
-        var url_update = "https://localhost:44331/api/client/update/" + nickname;
+        var url_update = url_api + "client/update/" + nickname;
         var type = "PUT";
         UpdateBio(type, url_update, formData, name, surname, bio);
     });
@@ -135,7 +143,7 @@
     function SendRequestFriend(session, nickname) {
         var response = $.ajax({
             type: "POST",
-            url: "https://localhost:44331/api/friendship/create/" + session + "/" + nickname,
+            url: url_api + "friendship/create/" + session + "/" + nickname,
             headers: { Timestamp: String(new Date().getTime()) },
         });
     }
@@ -143,7 +151,7 @@
     function UndoRequestFriend(session, nickname) {
         var response = $.ajax({
             type: "DELETE",
-            url: "https://localhost:44331/api/friendship/delete/" + session + "/" + nickname,
+            url: url_api + "friendship/delete/" + session + "/" + nickname,
         });
     }
 
@@ -184,7 +192,7 @@
 
     /* REQUEST TO BE FRIEND BUTTON END */
 
-
+    /* UPLOUD IMAGE START */
 
     $(".uploud-button input").change(function (e) {
         var formData = new FormData();
@@ -203,55 +211,7 @@
         });
     });
 
-
-
-
-    $("#counter-button").on("click", function () {
-        $(".counter").show();
-    });
-
-
-    $("#counter-button").on("click", function () {
-        var likes = parseInt($('.counter').text());
-        likes++;
-        $(".counter").text(likes);
-    });
-
-    $("#dropdown-button-logout").on("click", function () {
-        $.ajax({
-            type: "post",
-            url: "https://localhost:44347/logout"
-        }).done(function (data) {
-            window.location.replace(data.url);
-        })
-    });
-
-    $(".form-commentary textarea").change(function (e) {
-        if (e.target.value != "")
-            $(".section-commentary span").remove();
-    });
-
-    $(".form-commentary div").on("click", function () {
-        var comment = $('.form-commentary textarea').val();
-        if (comment) {
-            var name = "Teste";
-            var src = "http://www.regrom.com/wp-content/uploads/2017/07/2006BF4261-400x400.jpg";
-            var comment = `<div class="comment"><figure><img src="${src}" /><figcaption>${name}</figcaption></figure><h5>${comment}</h5><div class="fas fa-heart-square" id="counter-button" type="button">❤</div><h6 class="counter">0</h6></div>`;
-
-            $('.commentary').prepend(comment);
-            $(".form-commentary textarea").val("");
-
-            var comment_counter = $('.comment').length;
-            if (comment_counter >= 5) {
-                $(".comment:last-child").remove();
-            }
-        }
-        else {
-            if (!$(".section-commentary span")[0]) {
-                $('.form-commentary').prepend('<span style="color: red; display: block; text-align: center">Please write some text before send the comment</span>');
-            }
-        }
-    });
+    /* UPLOUD IMAGE END */
 
 
     /* RENDER FEED START */
@@ -274,21 +234,26 @@
             $(".gallery-body").append('<div class="gallery-waypoint"></div>');
             gallery_pagination++;
             console.log(gallery_pagination);
+            paused = false;
         }
         else {
             gallery_end = true;
+            paused = true;
         }
-        paused = false;
     }
 
     $(window).scroll(function () {
+        if (client != window.location.pathname.substr(1)) {
+            client = window.location.pathname.substr(1)
+        }
+
         if (gallery_end == false && paused == false) {
-            paused = true;
             if (Math.trunc($(window).scrollTop()) > ($(document).height() - $(window).height() - 200)) {
+                paused = true;
                 $(".gallery-waypoint").append('<div class="loader gallery-loader"></div>')
                 $.ajax({
                     type: "GET",
-                    url: url_api + "/client/" + localStorage.getItem('client') + "/gallery/" + gallery_pagination,
+                    url: url_api + "client/" + client + "/gallery/" + gallery_pagination,
                     crossDomain: true,
                     headers: { "Access-Control-Allow-Origin": "*" },
                     success: function (response) {
@@ -302,8 +267,54 @@
         }
     });
 
-
     /* RENDER FEED END */
+
+    $(".form-commentary div").on("click", function () {
+        var comment = $('.form-commentary textarea').val();
+        if (comment) {
+            var recepient = window.location.pathname.substr(1)
+            var comment_html = `<div class="comment"><figure><img src="data:image/png;base64,${profile_pic}"/><figcaption>${name}</figcaption></figure><h5>${comment}</h5><div class="fas fa-heart-square" id="counter-button" type="button">❤</div><h6 class="counter">0</h6></div>`;
+
+            $('.commentary').prepend(comment_html);
+            $(".form-commentary textarea").val("");
+
+            var comment_counter = $('.comment').length;
+            if (comment_counter >= 5) {
+                $(".comment:last-child").remove();
+            }
+
+            $.ajax({
+                type: "POST",
+                url: url_api + `comment/create/${client}/${recepient}`,
+                headers: { text: comment },
+            });
+        }
+        else {
+            if (!$(".section-commentary span")[0]) {
+                $('.form-commentary').prepend('<span style="color: red; display: block; text-align: center">Please write some text before send the comment</span>');
+            }
+        }
+    });
+
+
+    $("#counter-button").on("click", function () {
+        $(".counter").show();
+    });
+
+
+    $("#counter-button").on("click", function () {
+        var likes = parseInt($('.counter').text());
+        likes++;
+        $(".counter").text(likes);
+    });
+
+
+
+    $(".form-commentary textarea").change(function (e) {
+        if (e.target.value != "")
+            $(".section-commentary span").remove();
+    });
+
 
 });
 

@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+     var collection = (Dictionary<string, object>)@Session["ClientCollection"];
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>@ViewBag.Title</title>
@@ -12,8 +16,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="~/Content/Shared/Profile/script.js"></script>
-    <script src="~/Content/Profile/Index/Desktop/script.js"></script>
+    @Scripts.Render("~/Content/Shared/Profile/script.js")
+    @Scripts.Render("~/Content/Profile/Index/Desktop/script.js")
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/Shared/Profile/style.css")
     @Styles.Render("~/Content/Profile/Index/Desktop/style.css")
@@ -23,6 +27,8 @@
 <body>
     <script type="text/javascript">
         localStorage.setItem('client', '@Session["Client"]')
+        localStorage.setItem('name', '@collection["Name"]')
+        localStorage.setItem('profile_pic', '@collection["Profile_pic"]')
     </script>
 
     <div class="navbar navbar-fixed-top">
