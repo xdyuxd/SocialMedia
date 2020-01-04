@@ -1,0 +1,144 @@
+﻿<div class="profile-settings-block"></div>
+<div class="profile-settings">
+    <div class="settings-header">
+        <i class="fa fa-times"></i>
+        <h3>Edit Profile</h3>
+    </div>
+    <div class="settings-body">
+        <form>
+            <div class="settings-cover-photo">
+                <i class="fa fa-camera"></i>
+                <input type="file" accept="image/*"/>
+                <img />
+            </div>
+            <div class="settings-profile-photo">
+                <i class="fa fa-camera"></i>
+                <input type="file" accept="image/*"/>
+                <img />
+            </div>
+            <div class="settings-fullname">
+                <div>
+                    <label>Name</label>
+                    <input type="text" value="@ViewBag.Name" />
+                </div>
+                <div>
+                    <label>Surname</label>
+                    <input type="text" value="@ViewBag.Surname"/>
+                </div>
+            </div>
+            <div class="settings-bio">
+                <label>Bio</label>
+                ​<textarea maxlength="240">@ViewBag.Bio</textarea>
+            </div>
+            <div class="settings-birthdate">
+                <label>Birthdate</label>
+                <input type="date" />
+            </div>
+        </form>
+    </div>
+    <div class="settings-footer">
+        <h2>Save</h2>
+    </div>
+</div>
+
+<div class="cover">
+    <div class="cover-photo">
+        <img src="data:image/png;base64,@ViewBag.Cover_pic"/>
+    </div>
+</div>
+
+<div class="profile">
+    <div class="profile-photo">
+        <img src="data:image/png;base64,@ViewBag.Profile_pic" style="background-color: #b1b1b1; height: 200px;" />
+    </div>
+    <div class="profile-name">
+        <h2>@ViewBag.Name</h2>
+        <i class="fas fa-edit"></i>
+    </div>
+    <div class="profile-bio">
+        <h3>@ViewBag.Bio</h3>
+    </div>
+    <div class="profile-friends">
+        <h3>Friends</h3>
+        <div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+            <div class="friend-thumb"></div>
+        </div>
+    </div>
+    @{
+        HttpContext context = HttpContext.Current;
+        IEnumerable<dynamic> friendship = ViewBag.Friendship;
+        if ((string)Session["Client"] != context.Request.Url.AbsolutePath.Replace("/", ""))
+        {
+            if (friendship.Where(f => f["Recepient"] == context.Request.Url.AbsolutePath.Replace("/", "") ||
+            f["Accepted"] == false).Count() == 0)
+            {
+                <div class="profile-request">
+                    <i class="fas fa-user-plus"></i>
+                    <h4>Add</h4>
+                </div>
+            }
+            else if (friendship.Where(f => f["Recepient"] == context.Request.Url.AbsolutePath.Replace("/", "") &&
+            f["Accepted"] == false).Count() == 1)
+            {
+                <div class="profile-request">
+                    <i class="fas fa-user-times"></i>
+                    <h4>Undo request</h4>
+                </div>
+                }
+            }
+        }
+</div>
+
+<div class="profile-body">
+    <div class="section-featured-photos">
+        <h3>Featured Photos</h3>
+        <div class="featured-photos">
+            @if (ViewBag.Featured_photos.Count != 0)
+            {
+                foreach (var photo in ViewBag.Featured_photos)
+                {
+                    <div>
+                        <img src="data:image/png;base64,@photo["Img"]" />
+                    </div>
+                }
+            }
+            else
+            {
+                <h1 style="color: #bfbfbf; font-size: 18px;">No featured photos :/</h1>
+            }
+
+        </div>
+    </div>
+    <div class="section-commentary">
+        <h3>Commentary</h3>
+        <div class="form-commentary">
+            <form>
+                <textarea maxlength="100" rows="3" cols="50" placeholder="Leave your comment"></textarea>
+                <div>Send</div>
+            </form>
+        </div>
+        <div class="commentary">
+        </div>
+    </div>
+</div>
+
+<div class="gallery">
+    <div class="gallery-header">
+        <div class="divider"></div>
+        <h3>Gallery</h3>
+        <div class="divider"></div>
+    </div>
+    <div class="gallery-body">
+        <div class="gallery-waypoint"></div>
+    </div>
+</div>
+
+
+
+
+

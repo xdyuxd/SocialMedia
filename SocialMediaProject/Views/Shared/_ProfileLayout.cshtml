@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+    @Scripts.Render("~/bundles/jquery")
+    <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="~/Content/Shared/Profile/script.js"></script>
+    <script src="~/Content/Profile/Index/Desktop/script.js"></script>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Shared/Profile/style.css")
+    @Styles.Render("~/Content/Profile/Index/Desktop/style.css")
+    @Styles.Render("~/Content/Profile/Index/Desktop/error.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <script type="text/javascript">
+        localStorage.setItem('client', '@Session["Client"]')
+    </script>
+
+    <div class="navbar navbar-fixed-top">
+        <div class="logo">
+            <input type="image" src="https://i.imgur.com/DZE7h4J.png" class="logo-icon" />
+        </div>
+        @using (Html.BeginForm("search", "Profile", FormMethod.Post))
+        {
+            <input class="search col-lg-6" name="nickname" type="search" placeholder="  |  Search">
+        }
+        <div class="uploud-button">
+            <input type="file" />
+            <i class="fas fa-upload"></i>
+        </div>
+        <div class="notification-button">
+            <i class="fas fa-upload" type="button" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu dropdown-notification shadow">
+                <i class="fa fa-user-friends"></i>
+                <h3>Friend Request</h3>
+                <li class="divider"></li>
+                @{ 
+                    IEnumerable<dynamic> notification = ViewBag.Notification;
+                    if (notification.Where(f => f["Sended"] == true).Count() != 0)
+                    {
+                        foreach (var n in notification.Where(f => f["Sended"] == true))
+                        {
+                             <div class="friendship-notification">
+                                 <a href="https://localhost:44347/@n["Sender"]["Nickname"]">
+                                     <img />
+                                 </a>
+                                 <h4>@n["Sender"]["Name"]</h4>
+                                 <h5>@n["Text"]</h5>
+                                 <button value="@n["Id"]">Accept</button>
+                                 <button>Reject</button>
+                             </div>
+                             <li class="divider"></li>
+                        }
+                    }
+                    else
+                    {
+                        <span> No requests :c </span>
+                    }
+                }
+            </ul>
+        </div>
+        <div style="display: contents">
+            <i class="fa fa-user-circle" type="button" data-toggle="dropdown"></i>
+            <ul class="dropdown-menu dropdown-perfil shadow">
+                <i class="fa fa-sort-up"></i>
+                <form>
+                    <div id="dropdown-button-logout" class="dropdown-button">Logout</div>
+                </form>
+                <li class="divider"></li>
+            </ul>
+        </div>
+    </div>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

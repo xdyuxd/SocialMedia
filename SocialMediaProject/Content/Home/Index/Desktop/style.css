@@ -1,40 +1,153 @@
-﻿body {
-    background-color: rgb(220, 220, 220);
-    font-family: 'Roboto', sans-serif;
+﻿h3 {
+    color: white;
+    margin: 35px;
+    flex-wrap: wrap;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+
+    -moz-user-select: none;
 }
 
-.navbar {
-    background-color: rgb(255, 255, 255)
-    
+.container-main {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding-top: 15px;
+    position: relative;
 }
 
-.logo {
-    height: 45px;
-    width: 45px;
-    border: none !important;
-    padding: 0;
-    background: none;
-}
-
-.logo-button {
-    border: none;
-    background: none;
-    margin-top: 2px;
-    margin-bottom: 2px;
-}
-
-.text-logo-button {
-    float: right;
-    margin-top: 10px;
-    margin-left: 5px;
-    margin-bottom: 10px;
-}
-
-.gradient {
+.container-main span {
+    color: red;
+    font-weight: 600;
     position: absolute;
-    top: 0%;
-    height: 100vh;
+    top: 0;
+}
+
+.box-registration {
+    align-items: center;
+    display: flex;
+    order: 4;
+    flex-direction: column;
+    padding: 15px;
+    margin: 15px;
+}
+
+.box-login {
+    align-items: center;
+    display: none;
+    order: 4;
+    flex-direction: column;
+    padding: 90px 15px 15px 15px;
+    margin: 15px;
+}
+
+.container-main div form input[type="text"],
+.container-main div form input[type="date"],
+.container-main div form input[type="password"] {
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0px solid #ced4da;
+    border-radius: 0px;
+    box-shadow: 0 0 0 0 transparent;
+    color: #495057;
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    height: calc(1.5em + 0.75rem + 2px);
+    line-height: 1.5;
+    padding: 10px;
+    transition: border-color 0.15s ease-in-out;
     width: 100%;
-    background-image: linear-gradient(72deg, #c7b3ff, #d4d0a2 );
-    z-index: -10;
+}
+
+.register-buttons {
+    height: 38px;
+    width: 100%;
+}
+
+.login-buttons {
+    height: 38px;
+    width: 100%;
+}
+
+.container-main div form input[type="submit"],
+.container-main div form div div {
+    border: 0px;
+    color: white;
+    display: inline-block;
+    height: 100%;
+    line-height: 250%;
+    text-align: center;
+    user-select: none;
+    width: 50%;
+    -moz-user-select: none;
+}
+
+.register-button-sign-up {
+    background-color: rgb(212, 146, 241);
+    float: left;
+}
+
+.register-button-login {
+    background-color: rgb(155, 155, 155);
+    cursor: pointer;
+}
+
+.login-button {
+    background-color: rgb(212, 146, 241);
+    color: white;
+    display: inline-block;
+    float: left;
+    height: 100%;
+    line-height: 250%;
+    text-align: center;
+    user-select: none;
+    width: 50%;
+    -moz-user-select: none;
+}
+
+.login-button-back {
+    background-color: rgb(155, 155, 155);
+    color: white;
+    display: inline-block;
+    height: 100%;
+    line-height: 250%;
+    text-align: center;
+    user-select: none;
+    width: 50%;
+    -moz-user-select: none;
+}
+
+.box_template_image {
+    display: flex;
+    order: 1;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    padding-right: 2%;
+}
+
+.template_image_login {
+    display: flex;
+    flex-shrink: 1;
+    order: 2;
+    border-radius: 4px;
+    filter: drop-shadow(2px 2px 2px #222);
+    max-width: 600px;
+}
+
+
+
+
+.footer {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
 }

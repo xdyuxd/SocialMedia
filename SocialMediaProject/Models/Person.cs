@@ -1,9 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System;
 
 namespace SocialMedia.Models
 {
@@ -11,27 +6,12 @@ namespace SocialMedia.Models
     {
         private string fullname;
 
-        [Display(Name = "Nickname")]
-        [Required(ErrorMessage = "O nickname é obrigatorio")]
-        public string Nickname { get; set; }
-
-        [Display(Name = "Nome")]
-        [Required(ErrorMessage = "O nome é obrigatorio")]
-        public string Name { get; set; }
-
-        [Display(Name = "Sobrenome")]
-        public string Surname { get; set; }
-
-        [BsonDateTimeOptions]
-        [Display(Name = "Data de nascimento")]
-        [Required(ErrorMessage = "A data de nascimento é obrigatorio")]
-        public DateTime Birthdate { get; set; }
-
-        [Required(ErrorMessage = "O email é obrigatorio")]
-        public string Email { get; set; }
-
-        [Required(ErrorMessage = "A senha é obrigatorio")]
-        public string Password { get; set; }
+        public string nickname { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public DateTime birthdate { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
 
         //Person ()
         //{
@@ -40,7 +20,7 @@ namespace SocialMedia.Models
 
         public void setFullname()
         {
-            fullname = Name + ' ' + Surname; 
+            fullname = name + ' ' + surname; 
         }
     }
 }

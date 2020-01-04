@@ -1,116 +1,50 @@
-﻿@model SocialMedia.Models.Client
-@{
+﻿@{
     ViewBag.Title = "Cadastre-se";
 }
-@Styles.Render("~/Content/home/index/desktop/style.css")
 
 <div class="gradient"></div>
-<div class="navbar navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <button class="logo-button">
-                <img src="https://i.imgur.com/DZE7h4J.png" class="logo" />
-                <h3 class="text-logo-button">Social Media</h3>
-            </button>
-        </div>
 
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                <li>@Html.ActionLink("Login", "Contact", "Home")</li>
-            </ul>
-        </div>
+<h3>Welcome to the Social Media!</h3>
+<div class="container-main">
+    @*<div class="box_template_image">
+            <img src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/3/2017/02/17160524/social-media-walls-for-events.jpg" class="template_image_login" />
+        </div>*@
+    <span>@ViewBag.Error</span>
+    <div class="box-registration">
+        @using (Html.BeginForm("create", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="surname" placeholder="Surname">
+            <input type="date" name="birthdate">
+            <input type="text" name="nickname" placeholder="Nickname">
+            <input type="text" name="email" placeholder="E-mail">
+            <input type="password" name="password" placeholder="Password">
+            <div class="register-buttons">
+                <input type="submit" class="register-button-sign-up" value="Sign Up">
+                <div class="register-button-login">Login</div>
+            </div>
+        }
     </div>
+    <div class="box-login">
+        @using (Html.BeginForm("login", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input type="text" name="uk" placeholder="Email or nickname">
+            <input type="password" name="password" placeholder="Password">
+            <div class="login-buttons">
+                <input type="submit" class="login-button" value="Login" />
+                <div class="login-button-back">Back</div>
+            </div>
+        }
+        </div>
 </div>
 
-@using (Html.BeginForm("create", null, new { }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="col-md-10">
-        <input type="text" name="name" id="name" />
-        <input type="submit" value="Entrar" class="btn btn-default" style="margin-left: 1%" />
-    </div>
-}
 
 
-@*<form method="POST" action="Create">
-        <div class="col-md-10" style="left:78%">
-            <input type="text" name="name" id="name" />
-            <input type="submit" value="Buscar" class="btn btn-default" style="margin-left: 1%" />
-        </div>
-    </form>*@
-
-@using (Html.BeginForm("Create", null, new { }))
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nickname, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nickname, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nickname, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Birthdate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Birthdate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Cadastrar" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+
+
 
